@@ -1,8 +1,9 @@
 import { styled } from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const Container = styled.div`
-  max-width: 390px;
-  width: 100vh;
+  max-width: 500px;
+  width: 100vw;
   max-height: 100px;
   height: 10vh;
   height: 8dvh; /* Mobile */
@@ -23,7 +24,10 @@ const NavigationBar = () => {
   return (
     <Container>
       <Box>지도</Box>
-      <Box>홈</Box>
+      <Box>
+        <NavLink to="/">홈</NavLink>
+      </Box>
+
       <Box>마이</Box>
     </Container>
   );
