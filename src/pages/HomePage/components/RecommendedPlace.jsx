@@ -18,7 +18,7 @@ const Title = styled.div`
 const RecommendedBox = styled.div`
   max-width: 400px;
   width: 90%;
-  margin: 5% auto 0;
+  margin: 5% auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
