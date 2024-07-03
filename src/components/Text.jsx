@@ -6,8 +6,16 @@ const TextBox = styled.span`
   color: ${(props) => props.$textColor};
 `;
 
-const Text = ({ children }) => {
-  return <TextBox>{children}</TextBox>;
+const Text = ({ children, $fontSize, $fontWeight, $textColor }) => {
+  return (
+    <TextBox
+      $fontSize={$fontSize}
+      $fontWeight={$fontWeight}
+      $textColor={$textColor}
+    >
+      {children}
+    </TextBox>
+  );
 };
 
 export default Text;

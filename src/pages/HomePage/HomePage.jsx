@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Header from "./components/Header";
+import HomeHeader from "./components/HomeHeader";
 import Carousel from "./components/Carousel";
 import RecommendedPlace from "./components/RecommendedPlace";
 
@@ -12,20 +12,20 @@ const Container = styled.div`
 
 const CarouselBox = styled.div`
   width: 100%;
-  padding: 3dvh;
+  padding: 3dvh 0;
 `;
 
 const CAROUSEL_IMAGES = [
-  "https://placehold.co/320x200",
-  "https://placehold.co/320x200",
-  "https://placehold.co/320x200",
-  "https://placehold.co/320x200",
+  "https://placehold.co/500x200",
+  "https://placehold.co/500x200",
+  "https://placehold.co/500x200",
+  "https://placehold.co/500x200",
 ];
 
 const HomePage = () => {
   return (
     <Container>
-      <Header />
+      <HomeHeader />
       <CarouselBox>
         <Carousel images={CAROUSEL_IMAGES} />
       </CarouselBox>

@@ -1,12 +1,13 @@
 import { styled } from "styled-components";
 import { Outlet } from "react-router-dom";
+import NavigationBar from "./NavigationBar";
 
 const Container = styled.div`
   max-width: 500px;
   width: 100dvw;
   height: 92vh;
   height: 92dvh; /* Mobile */
-  overflow: auto;
+  overflow: hidden auto;
   position: relative;
 
   &::-webkit-scrollbar {
@@ -18,9 +19,12 @@ const Container = styled.div`
 
 const Layout = () => {
   return (
-    <Container>
-      <Outlet />
-    </Container>
+    <>
+      <Container>
+        <Outlet />
+      </Container>
+      <NavigationBar />
+    </>
   );
 };
 

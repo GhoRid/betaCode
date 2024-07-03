@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const CarouselContainer = styled.div`
-  width: 320px;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto;
 `;
@@ -14,7 +14,7 @@ const Slide = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
+  width: 100dvw;
   height: auto;
 `;
 

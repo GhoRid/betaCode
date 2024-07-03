@@ -1,7 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Text from "../../components/Text";
 import RestaurantInfo from "./components/RestaurantInfo";
+import MenuList from "./components/MenuList";
+import Header from "./../../components/Header";
 
 const Container = styled.div`
   width: 100%;
@@ -9,6 +11,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #d9d9d9;
+  position: relative;
 `;
 
 const MockImage = styled.div`
@@ -31,23 +34,32 @@ const RestTable = styled.button`
   gap: 20px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 const RestaurantPage = () => {
   const { restaurant } = useParams();
+  const navigate = useNavigate();
 
   return (
     <Container>
+      <Header />
       <MockImage></MockImage>
       <RestaurantInfo />
       <RestTableBox>
-        <RestTable>
+        <RestTable
+          onClick={() => {
+            console.log("남은 좌석 보기");
+            navigate("/restaurant/table");
+          }}
+        >
           <Text $fontSize="20px">남은 테이블</Text>
           <Text $fontSize="20px" $textColor="white">
             8/28
           </Text>
         </RestTable>
       </RestTableBox>
+      <MenuList />
     </Container>
   );
 };

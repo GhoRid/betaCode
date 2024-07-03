@@ -1,18 +1,23 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
   height: 150px;
   background-color: skyblue;
   border-radius: 20px;
+  cursor: pointer;
 `;
 
 const Card = () => {
+  const navigate = useNavigate();
+
   return (
-    <Container>
-      <Link to="/"></Link>
-    </Container>
+    <Container
+      onClick={() => {
+        navigate("/restaurant");
+      }}
+    ></Container>
   );
 };
 

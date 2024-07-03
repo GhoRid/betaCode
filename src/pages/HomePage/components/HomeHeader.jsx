@@ -13,7 +13,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Header = () => {
+const HomeHeader = () => {
   return (
     <Container>
       <h1>Header</h1>
@@ -22,4 +22,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HomeHeader;
