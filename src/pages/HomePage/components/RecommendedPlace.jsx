@@ -36,9 +36,6 @@ const RecommendedPlace = ({ recommendedList }) => {
         <Card />
         <Card />
         <Card />
-        {/* {recommendedList.map((item, index) => (
-            <Card key={index} item={item} />
-          ))} */}
       </RecommendedBox>
     </Container>
   );
