@@ -23,7 +23,9 @@ const Box = styled.div`
 const NavigationBar = () => {
   return (
     <Container>
-      <Box>지도</Box>
+      <Box>
+        <NavLink to="/map">지도</NavLink>
+      </Box>
       <Box>
         <NavLink to="/">홈</NavLink>
       </Box>
