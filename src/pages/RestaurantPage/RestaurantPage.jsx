@@ -4,6 +4,7 @@ import Text from "../../components/Text";
 import RestaurantInfo from "./components/RestaurantInfo";
 import MenuList from "./components/MenuList";
 import Header from "./../../components/Header";
+import MapBox from "./components/MapBox";
 
 const Container = styled.div`
   width: 100%;
@@ -21,7 +22,7 @@ const MockImage = styled.div`
 `;
 
 const RestTableBox = styled.div`
-  margin-top: 20px;
+  margin-top: 8px;
   background-color: white;
   padding: 20px 16%;
 `;
@@ -59,6 +60,7 @@ const RestaurantPage = () => {
           </Text>
         </RestTable>
       </RestTableBox>
+      <MapBox />
       <MenuList />
     </Container>
   );

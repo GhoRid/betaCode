@@ -43,7 +43,9 @@ const RestaurantInfo = () => {
     <RestaurantInfoBox>
       <InfoMain>
         <Box>
-          <Text $fontSize="40px">통발</Text>
+          <Text $fontSize="40px" $fontWeight="600">
+            통발
+          </Text>
           <Text $fontSize="14px">503m</Text>
         </Box>
         <svg

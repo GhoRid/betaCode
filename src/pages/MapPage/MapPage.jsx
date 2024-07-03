@@ -36,16 +36,12 @@ const MapPage = () => {
     isLoading: true,
   });
 
-  console.log(locationState);
-
   useEffect(() => {
     let watchId;
 
     if (navigator.geolocation) {
-      console.log(!!navigator.geolocation);
       watchId = navigator.geolocation.watchPosition(
         (position) => {
-          console.log("position", position);
           setLocationState((prev) => ({
             ...prev,
             center: {
@@ -74,7 +70,6 @@ const MapPage = () => {
     return () => {
       if (watchId !== undefined) {
         navigator.geolocation.clearWatch(watchId);
-        console.log("Cleared watchPosition with ID:", watchId);
       }
     };
   }, []);
@@ -95,7 +90,7 @@ const MapPage = () => {
           height: "92dvh",
         }}
         level={3}
-        // minLevel={4}
+        minLevel={6}
         onCreate={setMap}
         center={locationState.center}
       >

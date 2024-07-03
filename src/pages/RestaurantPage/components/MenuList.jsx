@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Text from "../../../components/Text";
 
 const Container = styled.div`
-  margin-top: 20px;
+  margin-top: 8px;
   background-color: white;
   padding: 20px 6%;
 `;

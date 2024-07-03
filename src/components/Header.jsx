@@ -32,14 +32,14 @@ const Header = () => {
           <path
             d="M1 9L9 1"
             stroke="black"
-            stroke-width="2"
-            stroke-linecap="round"
+            strokeWidth="2"
+            strokeLinecap="round"
           />
           <path
             d="M9.00024 16.8789L1.00024 8.87891"
             stroke="black"
-            stroke-width="2"
-            stroke-linecap="round"
+            strokeWidth="2"
+            strokeLinecap="round"
           />
         </svg>
       </button>
