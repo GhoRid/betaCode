@@ -39,10 +39,13 @@ const MapPage = () => {
   console.log(locationState);
 
   useEffect(() => {
+    let watchId;
+
     if (navigator.geolocation) {
-      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-      navigator.geolocation.watchPosition(
+      console.log(!!navigator.geolocation);
+      watchId = navigator.geolocation.watchPosition(
         (position) => {
+          console.log("position", position);
           setLocationState((prev) => ({
             ...prev,
             center: {
@@ -67,6 +70,13 @@ const MapPage = () => {
         isLoading: false,
       }));
     }
+
+    return () => {
+      if (watchId !== undefined) {
+        navigator.geolocation.clearWatch(watchId);
+        console.log("Cleared watchPosition with ID:", watchId);
+      }
+    };
   }, []);
 
   const panTo = (point) => {
