@@ -1,25 +1,39 @@
 import React, { useEffect, useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
 import CarouselCard from "./CarouselCard";
+import styled from "styled-components";
+import Text from "./../../../components/Text";
 
 const range = [-1, 0, 1];
 
-const containerStyle = {
-  position: "relative",
-  width: "100%",
-  height: "100%",
-  overflowX: "hidden",
-};
+const Container = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+`;
 
 const transition = {
   type: "spring",
   bounce: 0,
 };
 
-const CarouselContainer = ({ children }) => {
+const IndexIndicator = styled.div`
+  position: absolute;
+  z-index: 999900;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 10px 0 10px 0;
+`;
+
+const CarouselContainer = ({ children, length }) => {
   const x = useMotionValue(0);
   const containerRef = useRef(null);
   const [index, setIndex] = useState(0);
+
+  const convertNumber = (n) => {
+    const remainder = n % length;
+    return remainder === 0 ? length : remainder;
+  };
 
   //현재 index에 따라 x값을 계산. handleEndDrag에서 setIndex로 index가 변경되지 않으면 기존의 calculateNewX()도 변하지 않기에 원래 위치로 로 이동.
   const calculateNewX = () => -index * (containerRef.current?.clientWidth || 0);
@@ -57,7 +71,7 @@ const CarouselContainer = ({ children }) => {
   }, []);
 
   return (
-    <motion.div ref={containerRef} style={containerStyle}>
+    <Container ref={containerRef}>
       {range.map((rangeValue) => {
         return (
           <CarouselCard
@@ -69,7 +83,12 @@ const CarouselContainer = ({ children }) => {
           />
         );
       })}
-    </motion.div>
+      <IndexIndicator>
+        <Text $fontSize="20px" $textColor="white">
+          {convertNumber(index + 1)} / {length}
+        </Text>
+      </IndexIndicator>
+    </Container>
   );
 };
 

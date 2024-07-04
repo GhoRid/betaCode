@@ -1,18 +1,22 @@
+import styled from "styled-components";
 import CarouselContainer from "./CarouselConatiner";
 
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+`;
+
 const Carousel = ({ images }) => {
+  const length = images.length;
+
   return (
-    <CarouselContainer>
+    <CarouselContainer length={length}>
       {({ index }) => {
-        const modulo = index % images.length;
-        const imageIndex = modulo < 0 ? images.length + modulo : modulo;
+        const modulo = index % length;
+        const imageIndex = modulo < 0 ? length + modulo : modulo;
         return (
-          <img
-            draggable={false}
-            alt="Mountain"
-            style={{ width: "100%" }}
-            src={images[imageIndex]}
-          />
+          <Image draggable={false} alt="Mountain" src={images[imageIndex]} />
         );
       }}
     </CarouselContainer>

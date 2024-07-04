@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 import { useMemo } from "react";
+import styled from "styled-components";
 
-const pageStyle = {
-  position: "absolute",
-  width: "100%",
-  height: "100%",
-};
+const Card = styled(motion.div)`
+  position: absolute;
+  width: 90%;
+  height: 250px;
+`;
 
 const CarouselCard = ({ index, renderPage, x, onDragEnd }) => {
   const child = useMemo(() => renderPage({ index }), [index, renderPage]);
 
   return (
-    <motion.div
+    <Card
       style={{
-        ...pageStyle,
         x,
         left: `${index * 100}%`,
         right: `${index * 100}%`,
@@ -24,7 +24,7 @@ const CarouselCard = ({ index, renderPage, x, onDragEnd }) => {
       onDragEnd={onDragEnd}
     >
       {child}
-    </motion.div>
+    </Card>
   );
 };
 
