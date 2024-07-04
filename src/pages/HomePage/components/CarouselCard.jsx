@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useMemo } from "react";
-import Carousel from "./Carousel";
 
 const pageStyle = {
   position: "absolute",

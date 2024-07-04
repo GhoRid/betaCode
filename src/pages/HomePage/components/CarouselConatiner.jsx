@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
-import Carousel from "./Carousel";
 import CarouselCard from "./CarouselCard";
 
 const range = [-1, 0, 1];
@@ -37,9 +36,9 @@ const CarouselContainer = ({ children }) => {
 
     //현재 index를 조절하는 수치. 4분의 1 이상 넘어가면 인덱스 변경.
     if (offset.x > clientWidth / 4) {
-      setIndex(index - 1);
+      setIndex((prevIndex) => prevIndex - 1);
     } else if (offset.x < -clientWidth / 4) {
-      setIndex(index + 1);
+      setIndex((prevIndex) => prevIndex + 1);
     } else {
       animate(x, calculateNewX(), transition);
     }
@@ -49,6 +48,13 @@ const CarouselContainer = ({ children }) => {
     const controls = animate(x, calculateNewX(), transition);
     return controls.stop;
   }, [index]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prevIndex) => prevIndex + 1);
+    }, 5000); // 3초마다 이미지 변경
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <motion.div ref={containerRef} style={containerStyle}>

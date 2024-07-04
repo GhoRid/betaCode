@@ -12,15 +12,14 @@ const Container = styled.div`
 
 const CarouselBox = styled.div`
   width: 100%;
-  height: 200px;
+  height: 300px;
   padding: 3dvh 0;
 `;
 
 const CAROUSEL_IMAGES = [
-  "https://placehold.co/500x200",
-  "https://placehold.co/500x200",
-  "https://placehold.co/500x200",
-  "https://placehold.co/500x200",
+  "https://unsplash.com/photos/1527pjeb6jg/download?force=true&w=500",
+  "https://unsplash.com/photos/9wg5jCEPBsw/download?force=true&w=500",
+  "https://unsplash.com/photos/phIFdC6lA4E/download?force=true&w=500",
 ];
 
 const HomePage = () => {
