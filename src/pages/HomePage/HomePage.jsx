@@ -12,6 +12,7 @@ const Container = styled.div`
 
 const CarouselBox = styled.div`
   width: 100%;
+  height: 200px;
   padding: 3dvh 0;
 `;
 
