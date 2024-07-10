@@ -87,7 +87,7 @@ const MapPage = () => {
         id="map"
         style={{
           width: "100%",
-          height: "92dvh",
+          height: "93dvh",
         }}
         level={3}
         minLevel={6}
