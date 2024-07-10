@@ -5,8 +5,8 @@ import NavigationBar from "./NavigationBar";
 const Container = styled.div`
   max-width: 500px;
   width: 100dvw;
-  height: 92vh;
-  height: 92dvh; /* Mobile */
+  height: 93vh;
+  height: 93dvh; /* Mobile */
   overflow: hidden auto;
   position: relative;
   background-color: #f3f9ff;
