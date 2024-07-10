@@ -35,7 +35,6 @@ const CarouselContainer = ({ children, length }) => {
     const remainder = n % length;
     return remainder === 0 ? length : remainder;
   };
-  console.log(containerRef.current?.clientWidth);
 
   //현재 index에 따라 x값을 계산. handleEndDrag에서 setIndex로 index가 변경되지 않으면 기존의 calculateNewX()도 변하지 않기에 원래 위치로 로 이동.
   const calculateNewX = () => -index * (containerRef.current?.clientWidth || 0);

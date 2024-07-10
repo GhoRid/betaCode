@@ -9,7 +9,6 @@ const Container = styled.div`
 
 const TextBox = styled.div`
   display: flex;
-
   align-items: center;
   gap: 12px;
 `;
