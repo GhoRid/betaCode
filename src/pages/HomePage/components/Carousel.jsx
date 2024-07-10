@@ -3,8 +3,8 @@ import CarouselContainer from "./CarouselConatiner";
 
 const Image = styled.img`
   width: 100%;
-  height: 100%;
-  border-radius: 10px;
+  height: 200px;
+  border-radius: 30px;
 `;
 
 const Carousel = ({ images }) => {

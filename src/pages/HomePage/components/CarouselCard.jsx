@@ -4,8 +4,11 @@ import styled from "styled-components";
 
 const Card = styled(motion.div)`
   position: absolute;
-  width: 90%;
-  height: 250px;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  border-radius: 30px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 `;
 
 const CarouselCard = ({ index, renderPage, x, onDragEnd }) => {

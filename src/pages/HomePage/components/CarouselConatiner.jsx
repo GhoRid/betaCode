@@ -9,7 +9,6 @@ const range = [-1, 0, 1];
 const Container = styled(motion.div)`
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
 `;
 
 const transition = {
@@ -19,10 +18,12 @@ const transition = {
 
 const IndexIndicator = styled.div`
   position: absolute;
+  right: 10%;
+  bottom: 0;
   z-index: 999900;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 5px 10px;
-  border-radius: 10px 0 10px 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 20px;
+  border-radius: 20px 0 30px 0;
 `;
 
 const CarouselContainer = ({ children, length }) => {
@@ -34,6 +35,7 @@ const CarouselContainer = ({ children, length }) => {
     const remainder = n % length;
     return remainder === 0 ? length : remainder;
   };
+  console.log(containerRef.current?.clientWidth);
 
   //현재 index에 따라 x값을 계산. handleEndDrag에서 setIndex로 index가 변경되지 않으면 기존의 calculateNewX()도 변하지 않기에 원래 위치로 로 이동.
   const calculateNewX = () => -index * (containerRef.current?.clientWidth || 0);

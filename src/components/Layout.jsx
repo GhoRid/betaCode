@@ -9,6 +9,7 @@ const Container = styled.div`
   height: 92dvh; /* Mobile */
   overflow: hidden auto;
   position: relative;
+  background-color: #f3f9ff;
 
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */

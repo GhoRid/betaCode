@@ -3,16 +3,14 @@ import Card from "./Card";
 
 const Container = styled.div`
   width: 100%;
+  margin-top: 32px;
 `;
 
-const Header = styled.div`
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 2%;
-`;
+const Header = styled.div``;
 
 const Title = styled.div`
   margin-left: 5%;
-  font-size: 24px;
+  font-size: 16px;
 `;
 
 const RecommendedBox = styled.div`
@@ -28,10 +26,9 @@ const RecommendedPlace = ({ recommendedList }) => {
   return (
     <Container>
       <Header>
-        <Title>2차 여기 어때요</Title>
+        <Title>주변 맛집</Title>
       </Header>
       <RecommendedBox>
-        <Card />
         <Card />
         <Card />
         <Card />

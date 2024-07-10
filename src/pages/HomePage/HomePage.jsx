@@ -2,21 +2,17 @@ import styled from "styled-components";
 import HomeHeader from "./components/HomeHeader";
 import Carousel from "./components/Carousel";
 import RecommendedPlace from "./components/RecommendedPlace";
+import CategoryBox from "./components/CategoryBox";
 
 const Container = styled.div`
   width: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 `;
 
 const CarouselBox = styled.div`
-  width: 100%;
-  height: 300px;
-  padding: 2.5dvw 0;
+  height: 200px;
+  margin: 2dvh 3.5dvw;
   position: relative;
-  left: 50%;
-  transform: translateX(-45%);
 `;
 
 const CAROUSEL_IMAGES = [
@@ -36,6 +32,7 @@ const HomePage = () => {
       <CarouselBox>
         <Carousel images={CAROUSEL_IMAGES} />
       </CarouselBox>
+      <CategoryBox />
       <RecommendedPlace />
     </Container>
   );
