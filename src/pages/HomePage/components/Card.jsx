@@ -16,7 +16,7 @@ const Card = () => {
   return (
     <Container
       onClick={() => {
-        navigate("/restaurant");
+        navigate("/place");
       }}
     ></Container>
   );

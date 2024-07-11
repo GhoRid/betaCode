@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import RestaurantInfo from "./components/RestaurantInfo";
 import MenuList from "./components/MenuList";
 import Header from "./components/Header";
 import MapBox from "./components/MapBox";
 import backgroundImage from "./../../assets/backgroundImage.png";
-import Text from "./../../components/Text";
+import Text from "../../components/Text";
+import PlaceInfo from "./components/RestaurantInfo";
 
 const Container = styled.div`
   width: 100%;
@@ -39,7 +39,7 @@ const Button = styled.button`
   gap: 4px;
 `;
 
-const RestaurantPage = () => {
+const PlaceInfoPage = () => {
   const { restaurant } = useParams();
   const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ const RestaurantPage = () => {
     <Container>
       <Header />
       <MockImage src={backgroundImage} />
-      <RestaurantInfo />
+      <PlaceInfo />
       <ButtonBox>
         <Button>
           <Text $fontSize="18px">남은 테이블</Text>
@@ -62,4 +62,4 @@ const RestaurantPage = () => {
   );
 };
 
-export default RestaurantPage;
+export default PlaceInfoPage;

@@ -29,7 +29,7 @@ const MainInfoBox = styled.div`
   padding: 10px 0;
 `;
 
-const RestaurantInfo = () => {
+const PlaceInfo = () => {
   return (
     <Container>
       <TopBox>
@@ -73,4 +73,4 @@ const RestaurantInfo = () => {
   );
 };
 
-export default RestaurantInfo;
+export default PlaceInfo;
