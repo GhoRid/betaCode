@@ -28,17 +28,15 @@ const MapStyle = {
 };
 
 const MapBox = () => {
+  const coordinate = { lat: 35.17828963, lng: 126.909254315 };
+
   return (
     <Container>
       <Box>
         <Text $fontSize="28px" $fontWeight="600">
           지도
         </Text>
-        <Map
-          center={{ lat: 37.5665, lng: 126.978 }}
-          style={MapStyle}
-          level={3}
-        ></Map>
+        <Map center={coordinate} style={MapStyle} level={4}></Map>
       </Box>
     </Container>
   );
