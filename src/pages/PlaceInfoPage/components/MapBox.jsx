@@ -1,6 +1,7 @@
-import { Map } from "react-kakao-maps-sdk";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 import styled from "styled-components";
 import Text from "../../../components/Text";
+import { useEffect, useState } from "react";
 
 const { kakao } = window;
 
@@ -27,8 +28,26 @@ const MapStyle = {
   borderRadius: "10px",
 };
 
-const MapBox = () => {
-  const coordinate = { lat: 35.17828963, lng: 126.909254315 };
+const MapBox = ({ position }) => {
+  const [map, setMap] = useState(null);
+  const [center, setCenter] = useState({
+    lat: 35.17828963,
+    lng: 126.909254315,
+  });
+
+  const geocoder = new kakao.maps.services.Geocoder();
+
+  useEffect(() => {
+    geocoder.addressSearch(position, function (result, status) {
+      if (status === kakao.maps.services.Status.OK) {
+        console.log(result[0].y, result[0].x);
+        setCenter({
+          lat: result[0].y,
+          lng: result[0].x,
+        });
+      }
+    });
+  }, [position]);
 
   return (
     <Container>
@@ -36,7 +55,9 @@ const MapBox = () => {
         <Text $fontSize="16px" $fontWeight="600">
           지도
         </Text>
-        <Map center={coordinate} style={MapStyle} level={4}></Map>
+        <Map center={center} style={MapStyle} level={4} onCreate={setMap}>
+          <MapMarker position={center} />
+        </Map>
       </Box>
     </Container>
   );

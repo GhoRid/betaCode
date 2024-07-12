@@ -7,6 +7,8 @@ import backgroundImage from "./../../assets/backgroundImage.png";
 import Text from "../../components/Text";
 import PlaceInfo from "./components/PlaceInfo";
 import Review from "./components/Review";
+import { useQuery } from "@tanstack/react-query";
+import { fetchPlaceInfo } from "../../apis/table/table";
 
 const Container = styled.div`
   width: 100%;
@@ -50,24 +52,71 @@ const Box = styled.div`
 `;
 
 const PlaceInfoPage = () => {
-  const { restaurant } = useParams();
+  const { place: name } = useParams();
   const navigate = useNavigate();
+
+  console.log(name);
+
+  const { isLoading, data } = useQuery({
+    queryKey: ["place"],
+    enabled: !!name,
+    queryFn: () => fetchPlaceInfo(name),
+    onError: (e) => {
+      console.log(e);
+    },
+  });
+
+  // console.log(data?.data);
+
+  const {
+    img,
+    lefttable,
+    alltable,
+    memberclosedtimehour,
+    memberclosedtimemin,
+    membermobile,
+    membername,
+    memberopentimehour,
+    memberopentimemin,
+    memberposition,
+    memberspec,
+    memberstate,
+    memberstorepoint,
+  } = data?.data || {};
+
+  // console.log(data);
+
+  const infoList = {
+    memberclosedtimehour,
+    memberclosedtimemin,
+    membermobile,
+    membername,
+    memberopentimehour,
+    memberopentimemin,
+    memberposition,
+    memberspec,
+    memberstate,
+    memberstorepoint,
+  };
+
+  // console.log(infoList);
 
   return (
     <Container>
       <Header />
-      <MockImage src={backgroundImage} />
+      <MockImage src={img} />
       <Box>
-        <PlaceInfo />
+        {/* <PlaceInfo /> */}
+        <PlaceInfo infoList={infoList} />
         <ButtonBox>
           <RestTableButton>
             <Text $fontSize="18px">남은 테이블</Text>
             <Text $fontSize="20px" $fontWeight="500" $textColor="#234993">
-              6/25
+              {lefttable} / {alltable}
             </Text>
           </RestTableButton>
         </ButtonBox>
-        <MapBox />
+        <MapBox position={memberposition} />
         <Review />
         {/* <MenuList /> */}
       </Box>

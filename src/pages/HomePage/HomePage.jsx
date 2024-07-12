@@ -30,7 +30,7 @@ const CAROUSEL_IMAGES = [
 
 const HomePage = () => {
   const { isLoading, data } = useQuery({
-    queryKey: ["places"],
+    queryKey: ["list"],
     queryFn: fetchRecommandList,
     onError: (e) => {
       console.log(e);

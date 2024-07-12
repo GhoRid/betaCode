@@ -35,7 +35,7 @@ const Card = ({ element }) => {
   return (
     <Container
       onClick={() => {
-        navigate("/place");
+        navigate(membername);
       }}
     >
       <Image src={img} alt="img"></Image>

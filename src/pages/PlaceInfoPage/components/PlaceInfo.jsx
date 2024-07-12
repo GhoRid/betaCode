@@ -36,16 +36,29 @@ const Box = styled.div`
   margin-top: 8px;
 `;
 
-const PlaceInfo = () => {
+const PlaceInfo = ({ infoList }) => {
+  const {
+    memberclosedtimehour,
+    memberclosedtimemin,
+    membermobile,
+    membername,
+    memberopentimehour,
+    memberopentimemin,
+    memberposition,
+    memberspec,
+    memberstate,
+    memberstorepoint,
+  } = infoList;
+
   return (
     <Container>
       <TopBox>
         <TopTextBox>
           <Text $fontSize="36px" $fontWeight="700">
-            통발
+            {membername}
           </Text>
           <Text $fontSize="12px" $textColor="#787878">
-            전남대 상대점
+            {memberstorepoint}
           </Text>
         </TopTextBox>
         <DistanceBox>
@@ -114,7 +127,7 @@ const PlaceInfo = () => {
               />
             </g>
           </svg>
-          <Text $fontSize="12px">광주 북구 반룡로28번길 32-1</Text>
+          <Text $fontSize="12px">{memberposition}</Text>
         </Box>
         <Box>
           <svg
@@ -137,7 +150,7 @@ const PlaceInfo = () => {
               fill="#58AFFF"
             />
           </svg>
-          <Text $fontSize="12px">영업 중</Text>
+          <Text $fontSize="12px">{memberstate ? "영업 중" : "영업 종료"}</Text>
         </Box>
         <Box>
           <svg
@@ -154,7 +167,7 @@ const PlaceInfo = () => {
               fill="#58AFFF"
             />
           </svg>
-          <Text $fontSize="12px">062-511-5254</Text>
+          <Text $fontSize="12px">{membermobile}</Text>
         </Box>
         <Box>
           <svg
@@ -183,6 +196,7 @@ const PlaceInfo = () => {
           </svg>
           <Text $fontSize="12px">가게 소개</Text>
         </Box>
+        <Text $fontSize="12px">{memberspec}</Text>
       </MainInfoBox>
     </Container>
   );
