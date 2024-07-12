@@ -3,6 +3,9 @@ import HomeHeader from "./components/HomeHeader";
 import Carousel from "./components/Carousel";
 import RecommendedPlace from "./components/RecommendedPlace";
 import CategoryBox from "./components/CategoryBox";
+import { useQuery } from "@tanstack/react-query";
+import { fetchRecommandList } from "../../apis/table/table";
+import { useEffect } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -26,6 +29,20 @@ const CAROUSEL_IMAGES = [
 ];
 
 const HomePage = () => {
+  const { isLoading, data } = useQuery({
+    queryKey: ["places"],
+    queryFn: fetchRecommandList,
+    onError: (e) => {
+      console.log(e);
+    },
+  });
+
+  const recommendedList = data?.data;
+
+  if (isLoading) {
+    return <div>로딩중...</div>;
+  }
+
   return (
     <Container>
       <HomeHeader />
@@ -33,7 +50,7 @@ const HomePage = () => {
         <Carousel images={CAROUSEL_IMAGES} />
       </CarouselBox>
       <CategoryBox />
-      <RecommendedPlace />
+      <RecommendedPlace recommendedList={recommendedList} />
     </Container>
   );
 };

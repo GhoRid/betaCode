@@ -23,16 +23,17 @@ const RecommendedBox = styled.div`
 `;
 
 const RecommendedPlace = ({ recommendedList }) => {
+  console.log(recommendedList);
+
   return (
     <Container>
       <Header>
         <Title>주변 맛집</Title>
       </Header>
       <RecommendedBox>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {recommendedList.map((element, index) => {
+          return <Card key={index} element={element} />;
+        })}
       </RecommendedBox>
     </Container>
   );

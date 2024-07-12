@@ -5,7 +5,8 @@ import Header from "./components/Header";
 import MapBox from "./components/MapBox";
 import backgroundImage from "./../../assets/backgroundImage.png";
 import Text from "../../components/Text";
-import PlaceInfo from "./components/RestaurantInfo";
+import PlaceInfo from "./components/PlaceInfo";
+import Review from "./components/Review";
 
 const Container = styled.div`
   width: 100%;
@@ -15,7 +16,8 @@ const Container = styled.div`
 
 const MockImage = styled.img`
   width: 100%;
-  height: auto;
+  height: 200px;
+  z-index: -1;
 `;
 
 const ButtonBox = styled.div`
@@ -24,9 +26,10 @@ const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 12px;
 `;
 
-const Button = styled.button`
+const RestTableButton = styled.button`
   max-width: 400px;
   width: 90%;
   height: 80px;
@@ -39,6 +42,13 @@ const Button = styled.button`
   gap: 4px;
 `;
 
+const Box = styled.div`
+  width: 100%;
+  z-index: 100;
+  position: absolute;
+  top: 180px;
+`;
+
 const PlaceInfoPage = () => {
   const { restaurant } = useParams();
   const navigate = useNavigate();
@@ -47,17 +57,20 @@ const PlaceInfoPage = () => {
     <Container>
       <Header />
       <MockImage src={backgroundImage} />
-      <PlaceInfo />
-      <ButtonBox>
-        <Button>
-          <Text $fontSize="18px">남은 테이블</Text>
-          <Text $fontSize="20px" $fontWeight="500" $textColor="#234993">
-            6/25
-          </Text>
-        </Button>
-      </ButtonBox>
-      <MapBox />
-      <MenuList />
+      <Box>
+        <PlaceInfo />
+        <ButtonBox>
+          <RestTableButton>
+            <Text $fontSize="18px">남은 테이블</Text>
+            <Text $fontSize="20px" $fontWeight="500" $textColor="#234993">
+              6/25
+            </Text>
+          </RestTableButton>
+        </ButtonBox>
+        <MapBox />
+        <Review />
+        {/* <MenuList /> */}
+      </Box>
     </Container>
   );
 };

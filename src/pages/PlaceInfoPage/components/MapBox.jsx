@@ -10,20 +10,20 @@ const Container = styled.div`
   height: 100%;
   position: relative;
   margin: 8px auto 0;
-  padding: 28px 0;
+  padding: 28px 20px;
 `;
 
 const Box = styled.div`
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 `;
 
 const MapStyle = {
   width: "100%",
-  height: "200px",
+  height: "250px",
   borderRadius: "10px",
 };
 
@@ -33,7 +33,7 @@ const MapBox = () => {
   return (
     <Container>
       <Box>
-        <Text $fontSize="28px" $fontWeight="600">
+        <Text $fontSize="16px" $fontWeight="600">
           지도
         </Text>
         <Map center={coordinate} style={MapStyle} level={4}></Map>
