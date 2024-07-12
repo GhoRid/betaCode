@@ -29,10 +29,10 @@ const RecommendedPlace = ({ recommendedList }) => {
         <Title>주변 맛집</Title>
       </Header>
       <RecommendedBox>
-        {/* {recommendedList &&
-          recommendedList.map((element, index) => {
-            return <Card key={index} element={element} />;
-          })} */}
+        {Array.isArray(recommendedList) &&
+          recommendedList.map((element, index) => (
+            <Card key={index} element={element} />
+          ))}
       </RecommendedBox>
     </Container>
   );
