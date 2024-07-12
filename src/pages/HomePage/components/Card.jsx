@@ -8,8 +8,9 @@ const Container = styled.div`
   background-color: white;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 1);
   position: relative;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
@@ -17,14 +18,27 @@ const Image = styled.img`
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
+  position: relative;
+  z-index: 1;
+`;
+
+const ShadowOverlay = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  border-radius: inherit;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  pointer-events: none;
+  z-index: 2;
 `;
 
 const TextBox = styled.div`
   position: absolute;
   bottom: 0;
-  /* background-color: rgba(0, 0, 0, 0.5); */
   padding: 8px 12px;
   border-radius: 0 20px 0 20px;
+  z-index: 3;
 `;
 
 const Card = ({ element }) => {
@@ -38,7 +52,8 @@ const Card = ({ element }) => {
         navigate(membername);
       }}
     >
-      <Image src={img} alt="img"></Image>
+      <Image src={img} alt="img" />
+      <ShadowOverlay />
       <TextBox>
         <Text $fontSize="24px" $fontWeight="600" $textColor="white">
           {membername}
