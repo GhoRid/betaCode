@@ -23,8 +23,6 @@ const RecommendedBox = styled.div`
 `;
 
 const RecommendedPlace = ({ recommendedList }) => {
-  console.log(recommendedList);
-
   return (
     <Container>
       <Header>

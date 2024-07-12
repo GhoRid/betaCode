@@ -32,6 +32,8 @@ const HomePage = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["places"],
     queryFn: fetchRecommandList,
+    cacheTime: 0,
+    staleTime: 0,
     onError: (e) => {
       console.log(e);
     },
