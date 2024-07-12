@@ -31,6 +31,7 @@ const MainInfoBox = styled.div`
 
 const Box = styled.div`
   display: flex;
+  align-items: center;
   gap: 4px;
   margin-top: 8px;
 `;
