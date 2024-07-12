@@ -31,9 +31,10 @@ const RecommendedPlace = ({ recommendedList }) => {
         <Title>주변 맛집</Title>
       </Header>
       <RecommendedBox>
-        {recommendedList.map((element, index) => {
-          return <Card key={index} element={element} />;
-        })}
+        {recommendedList &&
+          recommendedList.map((element, index) => {
+            return <Card key={index} element={element} />;
+          })}
       </RecommendedBox>
     </Container>
   );
