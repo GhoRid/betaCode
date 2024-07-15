@@ -9,6 +9,7 @@ const range = [-1, 0, 1];
 const Container = styled(motion.div)`
   width: 100%;
   height: 100%;
+  position: relative;
 `;
 
 const transition = {

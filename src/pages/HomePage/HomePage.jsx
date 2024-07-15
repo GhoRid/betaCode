@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 const CarouselBox = styled.div`
-  height: 200px;
+  height: 170px;
   margin: 2dvh 3.5dvw;
   position: relative;
 `;
