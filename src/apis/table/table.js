@@ -7,3 +7,7 @@ export const fetchRecommandList = () => {
 export const fetchPlaceInfo = (name) => {
   return instance.get(`/api/${name}`);
 };
+
+export const fetchSearchingResult = (name) => {
+  return instance.get(`/api/search/${name}`);
+};

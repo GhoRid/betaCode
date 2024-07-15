@@ -4,7 +4,7 @@ import Text from "../../../components/Text";
 const Container = styled.div`
   background-color: white;
   width: 100%;
-  border-toprightradius: 25px;
+  border-top-right-radius: 25px;
   padding: 20px 6%;
 `;
 
@@ -23,6 +23,9 @@ const TopTextBox = styled.div`
 
 const DistanceBox = styled.div`
   text-align: center;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
 `;
 
 const MainInfoBox = styled.div`
@@ -48,7 +51,7 @@ const PlaceInfo = ({ infoList }) => {
     memberspec,
     memberstate,
     memberstorepoint,
-  } = infoList;
+  } = infoList || {};
 
   return (
     <Container>

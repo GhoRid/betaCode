@@ -40,7 +40,6 @@ const MapBox = ({ position }) => {
   useEffect(() => {
     geocoder.addressSearch(position, function (result, status) {
       if (status === kakao.maps.services.Status.OK) {
-        console.log(result[0].y, result[0].x);
         setCenter({
           lat: result[0].y,
           lng: result[0].x,

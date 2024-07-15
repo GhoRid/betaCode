@@ -6,17 +6,22 @@ import MapPage from "./pages/MapPage/MapPage";
 import TestPage from "./pages/TestPage/TestPage";
 import PlaceInfoPage from "./pages/PlaceInfoPage/PlaceInfoPage";
 import ScrollToTop from "./components/ScrollToTop";
+import NavigationBar from "./components/NavigationBar";
+import SearchPage from "./pages/SearchPage/SearchPage";
+import ResultPage from "./pages/ResultPage/ResultPage";
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/:place" element={<PlaceInfoPage />}></Route>
-          <Route path="/map" element={<MapPage />}></Route>
-          <Route path="/test" element={<TestPage />}></Route>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path=":place" element={<PlaceInfoPage />} />
+          <Route path="map" element={<MapPage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route path="search/result" element={<ResultPage />} />
+          <Route path="test" element={<TestPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

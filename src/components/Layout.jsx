@@ -6,8 +6,8 @@ const Container = styled.div`
   max-width: 500px;
   width: 100dvw;
   height: 93vh;
-  height: 93dvh; /* Mobile */
-  overflow: hidden auto;
+  height: 93dvh;
+  overflow-x: hidden;
   position: relative;
   background-color: #f3f9ff;
 

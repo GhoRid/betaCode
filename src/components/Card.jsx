@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Text from "../../../components/Text";
+import Text from "./Text";
 import { useEffect, useState } from "react";
 import { Map } from "react-kakao-maps-sdk";
-import { translateDistance } from "../../../utils/tranlateDistance";
+import { translateDistance } from "../utils/tranlateDistance";
 
 const { kakao } = window;
 
@@ -78,7 +78,6 @@ const Card = ({ element, locationState }) => {
   useEffect(() => {
     geocoder.addressSearch(memberposition, (result, status) => {
       if (status === kakao.maps.services.Status.OK) {
-        // console.log("result", result[0].address);
         setPoint({ lat: result[0].address.y, lng: result[0].address.x });
       }
     });

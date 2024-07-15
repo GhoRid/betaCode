@@ -4,6 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createGlobalStyle } from "styled-components";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { RecoilRoot } from "recoil";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -28,10 +29,10 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
     vertical-align: baseline;
     &::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
+      display: none; 
     }
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
@@ -101,10 +102,12 @@ const queryClient = new QueryClient();
 
 root.render(
   // <React.StrictMode>
-  <QueryClientProvider client={queryClient}>
-    <GlobalStyle />
-    <App />
-  </QueryClientProvider>
+  <RecoilRoot>
+    <QueryClientProvider client={queryClient}>
+      <GlobalStyle />
+      <App />
+    </QueryClientProvider>
+  </RecoilRoot>
   // </React.StrictMode>
 );
 

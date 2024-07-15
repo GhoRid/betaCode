@@ -1,9 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import MenuList from "./components/MenuList";
 import Header from "./components/Header";
 import MapBox from "./components/MapBox";
-import backgroundImage from "./../../assets/backgroundImage.png";
 import Text from "../../components/Text";
 import PlaceInfo from "./components/PlaceInfo";
 import Review from "./components/Review";
@@ -55,8 +53,6 @@ const PlaceInfoPage = () => {
   const { place: name } = useParams();
   const navigate = useNavigate();
 
-  console.log(name);
-
   const { isLoading, data } = useQuery({
     queryKey: ["place"],
     enabled: !!name,
@@ -65,8 +61,6 @@ const PlaceInfoPage = () => {
       console.log(e);
     },
   });
-
-  // console.log(data?.data);
 
   const {
     img,
@@ -84,30 +78,12 @@ const PlaceInfoPage = () => {
     memberstorepoint,
   } = data?.data || {};
 
-  // console.log(data);
-
-  const infoList = {
-    memberclosedtimehour,
-    memberclosedtimemin,
-    membermobile,
-    membername,
-    memberopentimehour,
-    memberopentimemin,
-    memberposition,
-    memberspec,
-    memberstate,
-    memberstorepoint,
-  };
-
-  // console.log(infoList);
-
   return (
     <Container>
       <Header />
       <MockImage src={img} />
       <Box>
-        {/* <PlaceInfo /> */}
-        <PlaceInfo infoList={infoList} />
+        <PlaceInfo infoList={data?.data} />
         <ButtonBox>
           <RestTableButton>
             <Text $fontSize="18px">남은 테이블</Text>

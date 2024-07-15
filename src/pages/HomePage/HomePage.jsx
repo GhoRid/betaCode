@@ -7,10 +7,12 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchRecommandList } from "../../apis/table/table";
 import { useEffect, useState } from "react";
 import advertiseImag from "../../assets/advertise.png";
+import { useRecoilState } from "recoil";
+import { locationState } from "./../../recoil/locationState/atom";
 
 const Container = styled.div`
-  width: 100%;
-  position: relative;
+  /* width: 100%; */
+  /* position: relative; */
 `;
 
 const CarouselBox = styled.div`
@@ -22,14 +24,8 @@ const CarouselBox = styled.div`
 const CAROUSEL_IMAGES = [advertiseImag, advertiseImag, advertiseImag];
 
 const HomePage = () => {
-  const [locationState, setLocationState] = useState({
-    center: {
-      lat: 35.17828963,
-      lng: 126.909254315,
-    },
-    errMsg: null,
-    isLoading: true,
-  });
+  const [currentlocationState, setCurrentLocationState] =
+    useRecoilState(locationState);
 
   useEffect(() => {
     let watchId;
@@ -37,7 +33,7 @@ const HomePage = () => {
     if (navigator.geolocation) {
       watchId = navigator.geolocation.watchPosition(
         (position) => {
-          setLocationState((prev) => ({
+          setCurrentLocationState((prev) => ({
             ...prev,
             center: {
               lat: position.coords.latitude, // 위도
@@ -47,7 +43,7 @@ const HomePage = () => {
           }));
         },
         (err) => {
-          setLocationState((prev) => ({
+          setCurrentLocationState((prev) => ({
             ...prev,
             errMsg: err.message,
             isLoading: false,
@@ -55,7 +51,7 @@ const HomePage = () => {
         }
       );
     } else {
-      setLocationState((prev) => ({
+      setCurrentLocationState((prev) => ({
         ...prev,
         errMsg: "geolocation을 사용할수 없어요..",
         isLoading: false,
@@ -92,7 +88,7 @@ const HomePage = () => {
       <CategoryBox />
       <RecommendedPlace
         recommendedList={recommendedList}
-        locationState={locationState}
+        locationState={currentlocationState}
       />
     </Container>
   );

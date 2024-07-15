@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Card from "./Card";
 import Text from "../../../components/Text";
+import Card from "../../../components/Card";
 
 const Container = styled.div`
   width: 100%;
