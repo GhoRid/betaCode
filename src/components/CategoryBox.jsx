@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -25,10 +26,16 @@ const IconBox = styled.button`
 `;
 
 const CategoryBox = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <ElementBox>
-        <IconBox>
+        <IconBox
+          onClick={() => {
+            navigate("/category/밥집", { state: { category: "밥집" } });
+          }}
+        >
           <svg
             width="30"
             height="38"
@@ -45,7 +52,11 @@ const CategoryBox = () => {
         <p>밥집</p>
       </ElementBox>
       <ElementBox>
-        <IconBox>
+        <IconBox
+          onClick={() => {
+            navigate("/category/술집", { state: { category: "술집" } });
+          }}
+        >
           <svg
             width="36"
             height="36"
@@ -62,7 +73,11 @@ const CategoryBox = () => {
         <p>술집</p>
       </ElementBox>
       <ElementBox>
-        <IconBox>
+        <IconBox
+          onClick={() => {
+            navigate("/category/카페", { state: { category: "카페" } });
+          }}
+        >
           <svg
             width="38"
             height="32"

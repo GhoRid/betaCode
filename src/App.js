@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import NavigationBar from "./components/NavigationBar";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ResultPage from "./pages/ResultPage/ResultPage";
+import CategoryPage from "./pages/CategoryPage/CategoryPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="map" element={<MapPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="search/result" element={<ResultPage />} />
+          <Route path="category/:category" element={<CategoryPage />} />
           <Route path="test" element={<TestPage />} />
         </Route>
       </Routes>

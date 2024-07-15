@@ -79,15 +79,10 @@ const Card = ({ element, locationState }) => {
     geocoder.addressSearch(memberposition, (result, status) => {
       if (status === kakao.maps.services.Status.OK) {
         setPoint({ lat: result[0].address.y, lng: result[0].address.x });
+        setRegionName(result[0].address.region_3depth_name);
       }
     });
   }, [locationState, memberposition]);
-
-  geocoder.addressSearch(memberposition, (result, status) => {
-    if (status === kakao.maps.services.Status.OK) {
-      setRegionName(result[0].address.region_3depth_name);
-    }
-  });
 
   const line = new kakao.maps.Polyline({
     path: [

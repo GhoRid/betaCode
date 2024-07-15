@@ -13,6 +13,10 @@ const Container = styled.div`
   grid-template-columns: repeat(4, 1fr); /* 4등분 */
   border-top: 1px solid #e0e0e0;
   align-items: center;
+
+  /* position: fixed;
+  bottom: 0; */
+  z-index: 999999;
 `;
 
 const Box = styled.div`

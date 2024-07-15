@@ -7,6 +7,7 @@ import PlaceInfo from "./components/PlaceInfo";
 import Review from "./components/Review";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPlaceInfo } from "../../apis/table/table";
+import { useEffect, useRef } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -56,19 +57,15 @@ const PlaceInfoPage = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["place"],
     enabled: !!name,
+    cacheTime: 0,
+    staleTime: 0,
     queryFn: () => fetchPlaceInfo(name),
     onError: (e) => {
       console.log(e);
     },
   });
 
-  const {
-    img,
-    lefttable,
-    alltable,
-
-    memberposition,
-  } = data?.data || {};
+  const { img, lefttable, alltable, memberposition } = data?.data || {};
 
   return (
     <Container>

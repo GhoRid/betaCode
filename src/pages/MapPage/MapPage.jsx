@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import locationIcon from "../../assets/location.webp";
 import styled from "styled-components";
 import { ReactComponent as Searching } from "../../assets/icons/Searching.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { fetchMapList } from "../../apis/table/table";
+import CustomOverlay from "./components/CustomOverlay";
 
 const { kakao } = window;
 
@@ -57,7 +60,18 @@ const PanToButton = styled.button`
 
 const MapPage = () => {
   const [map, setMap] = useState(null);
-  const navigate = useNavigate();
+  const [openIndex, setOpenIndex] = useState(null);
+  const handleToggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const { isLoading, data } = useQuery({
+    queryKey: ["maplist"],
+    queryFn: fetchMapList,
+    onError: (e) => {
+      console.log(e);
+    },
+  });
 
   const [locationState, setLocationState] = useState({
     center: {
@@ -137,6 +151,16 @@ const MapPage = () => {
             image={{ src: locationIcon, size: { width: 30, height: 30 } }}
           />
         )}
+        {data?.data.map((data, index) => {
+          return (
+            <CustomOverlay
+              key={index}
+              data={data}
+              isOpen={openIndex === index}
+              onToggle={() => handleToggle(index)}
+            />
+          );
+        })}
       </Map>
       <PanToButton onClick={panTo} aria-label="지도에서 위치로 이동">
         <svg

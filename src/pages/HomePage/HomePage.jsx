@@ -110,6 +110,16 @@ const HomePage = () => {
         recommendedList={recommendedList}
         locationState={currentLocationState}
       />
+
+      {/* <button
+        onClick={() => {
+          window.scrollTo(0, 0);
+          console.log("스크롤 이동");
+        }}
+        style={{ width: "100px", height: "100px" }}
+      >
+        dsad
+      </button> */}
     </Container>
   );
 };
