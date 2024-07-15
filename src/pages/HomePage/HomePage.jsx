@@ -6,6 +6,7 @@ import CategoryBox from "./components/CategoryBox";
 import { useQuery } from "@tanstack/react-query";
 import { fetchRecommandList } from "../../apis/table/table";
 import { useEffect, useState } from "react";
+import advertiseImag from "../../assets/advertise.png";
 
 const Container = styled.div`
   width: 100%;
@@ -18,15 +19,7 @@ const CarouselBox = styled.div`
   position: relative;
 `;
 
-const CAROUSEL_IMAGES = [
-  "https://unsplash.com/photos/1527pjeb6jg/download?force=true&w=300",
-  "https://unsplash.com/photos/9wg5jCEPBsw/download?force=true&w=300",
-  "https://unsplash.com/photos/phIFdC6lA4E/download?force=true&w=300",
-  // "https://placehold.co/500x200",
-  // "https://placehold.co/500x200",
-  // "https://placehold.co/500x200",
-  // "https://placehold.co/500x200",
-];
+const CAROUSEL_IMAGES = [advertiseImag, advertiseImag, advertiseImag];
 
 const HomePage = () => {
   const [locationState, setLocationState] = useState({
