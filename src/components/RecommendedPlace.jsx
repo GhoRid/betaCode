@@ -3,7 +3,6 @@ import Card from "./Card";
 
 const Container = styled.div`
   width: 100%;
-  margin-top: 32px;
 `;
 
 const RecommendedBox = styled.div`
