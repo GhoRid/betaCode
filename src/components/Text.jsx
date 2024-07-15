@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TextBox = styled.p`
+const TextBox = styled.span`
   font-size: ${(props) => props.$fontSize};
   font-weight: ${(props) => props.$fontWeight};
   color: ${(props) => props.$textColor};

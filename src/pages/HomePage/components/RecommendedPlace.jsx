@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Card from "./Card";
+import Text from "../../../components/Text";
 
 const Container = styled.div`
   width: 100%;
@@ -15,23 +16,28 @@ const Title = styled.div`
 
 const RecommendedBox = styled.div`
   max-width: 400px;
-  width: 90%;
+  width: 95%;
   margin: 5% auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 32px;
 `;
 
-const RecommendedPlace = ({ recommendedList }) => {
+const RecommendedPlace = ({ recommendedList, locationState }) => {
   return (
     <Container>
       <Header>
-        <Title>주변 맛집</Title>
+        <Title>
+          <Text $fontSize="20px" $fontWeight="800" $textColor="#0047FC">
+            여기
+          </Text>{" "}
+          <Text $fontSize="18px">어때요?</Text>
+        </Title>
       </Header>
       <RecommendedBox>
         {Array.isArray(recommendedList) &&
           recommendedList.map((element, index) => (
-            <Card key={index} element={element} />
+            <Card key={index} element={element} locationState={locationState} />
           ))}
       </RecommendedBox>
     </Container>

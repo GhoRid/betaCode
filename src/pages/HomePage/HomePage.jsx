@@ -5,7 +5,7 @@ import RecommendedPlace from "./components/RecommendedPlace";
 import CategoryBox from "./components/CategoryBox";
 import { useQuery } from "@tanstack/react-query";
 import { fetchRecommandList } from "../../apis/table/table";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -29,6 +29,53 @@ const CAROUSEL_IMAGES = [
 ];
 
 const HomePage = () => {
+  const [locationState, setLocationState] = useState({
+    center: {
+      lat: 35.17828963,
+      lng: 126.909254315,
+    },
+    errMsg: null,
+    isLoading: true,
+  });
+
+  useEffect(() => {
+    let watchId;
+
+    if (navigator.geolocation) {
+      watchId = navigator.geolocation.watchPosition(
+        (position) => {
+          setLocationState((prev) => ({
+            ...prev,
+            center: {
+              lat: position.coords.latitude, // 위도
+              lng: position.coords.longitude, // 경도
+            },
+            isLoading: false,
+          }));
+        },
+        (err) => {
+          setLocationState((prev) => ({
+            ...prev,
+            errMsg: err.message,
+            isLoading: false,
+          }));
+        }
+      );
+    } else {
+      setLocationState((prev) => ({
+        ...prev,
+        errMsg: "geolocation을 사용할수 없어요..",
+        isLoading: false,
+      }));
+    }
+
+    return () => {
+      if (watchId !== undefined) {
+        navigator.geolocation.clearWatch(watchId);
+      }
+    };
+  }, []);
+
   const { isLoading, data } = useQuery({
     queryKey: ["list"],
     queryFn: fetchRecommandList,
@@ -50,7 +97,10 @@ const HomePage = () => {
         <Carousel images={CAROUSEL_IMAGES} />
       </CarouselBox>
       <CategoryBox />
-      <RecommendedPlace recommendedList={recommendedList} />
+      <RecommendedPlace
+        recommendedList={recommendedList}
+        locationState={locationState}
+      />
     </Container>
   );
 };

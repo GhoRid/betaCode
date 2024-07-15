@@ -5,10 +5,12 @@ import Layout from "./components/Layout";
 import MapPage from "./pages/MapPage/MapPage";
 import TestPage from "./pages/TestPage/TestPage";
 import PlaceInfoPage from "./pages/PlaceInfoPage/PlaceInfoPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />}></Route>
