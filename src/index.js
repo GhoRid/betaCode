@@ -42,9 +42,9 @@ const GlobalStyle = createGlobalStyle`
   *[hidden] {
       display: none;
   }
-  html {  
+  /* html {  
     overscroll-behavior: none;
-  }
+  } */
   menu, ol, ul {
     list-style: none;
   }

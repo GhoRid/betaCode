@@ -20,7 +20,7 @@ const RecommendedBox = styled.div`
   margin: 5% auto;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
 `;
 
 const RecommendedPlace = ({ recommendedList, locationState }) => {

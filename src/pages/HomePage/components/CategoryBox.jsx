@@ -17,8 +17,8 @@ const IconBox = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 62px;
+  height: 62px;
   border-radius: 20px;
   background-color: #c4e3ff;
   margin-bottom: 4px;
@@ -30,8 +30,8 @@ const CategoryBox = () => {
       <ElementBox>
         <IconBox>
           <svg
-            width="22"
-            height="29"
+            width="30"
+            height="38"
             viewBox="0 0 22 29"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -47,8 +47,8 @@ const CategoryBox = () => {
       <ElementBox>
         <IconBox>
           <svg
-            width="28"
-            height="28"
+            width="36"
+            height="36"
             viewBox="0 0 28 28"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -64,8 +64,8 @@ const CategoryBox = () => {
       <ElementBox>
         <IconBox>
           <svg
-            width="28"
-            height="25"
+            width="38"
+            height="32"
             viewBox="0 0 28 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
