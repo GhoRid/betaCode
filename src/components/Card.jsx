@@ -107,7 +107,7 @@ const Card = ({ element, locationState }) => {
   return (
     <Container
       onClick={() => {
-        navigate(membername);
+        navigate(`/${membername}`);
       }}
     >
       <Image src={img} />
