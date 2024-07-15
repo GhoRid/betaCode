@@ -6,7 +6,8 @@ const ScrollToTop = () => {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    // 왜 이걸로 되지..?
+    document.getElementById("root")?.children[0]?.scrollTo(0, 0);
   }, [location.pathname]);
 
   return null;

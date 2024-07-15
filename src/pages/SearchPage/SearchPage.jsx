@@ -35,7 +35,9 @@ const SearchPage = () => {
   const currrentLocationState = useRecoilValue(locationState);
 
   const { isLoading, data } = useQuery({
-    queryKey: ["list"],
+    queryKey: ["searchPage"],
+    cacheTime: 5000,
+    staleTime: 5000,
     queryFn: fetchRecommandList,
     onError: (e) => {
       console.log(e);

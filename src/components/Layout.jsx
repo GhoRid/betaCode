@@ -8,13 +8,11 @@ const Container = styled.div`
   height: 93vh;
   height: 93dvh;
   overflow-x: hidden;
-  position: relative;
   background-color: #f3f9ff;
 
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
-  -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 `;
 

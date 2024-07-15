@@ -55,10 +55,8 @@ const PlaceInfoPage = () => {
   const navigate = useNavigate();
 
   const { isLoading, data } = useQuery({
-    queryKey: ["place"],
+    queryKey: ["place", name],
     enabled: !!name,
-    cacheTime: 0,
-    staleTime: 0,
     queryFn: () => fetchPlaceInfo(name),
     onError: (e) => {
       console.log(e);
@@ -66,6 +64,10 @@ const PlaceInfoPage = () => {
   });
 
   const { img, lefttable, alltable, memberposition } = data?.data || {};
+
+  if (isLoading) {
+    return <div>로딩중...</div>;
+  }
 
   return (
     <Container>

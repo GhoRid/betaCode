@@ -15,8 +15,8 @@ const Container = styled.div`
   align-items: center;
 
   /* position: fixed;
-  bottom: 0; */
-  z-index: 999999;
+  bottom: 0;
+  z-index: 999999; */
 `;
 
 const Box = styled.div`
