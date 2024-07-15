@@ -66,16 +66,8 @@ const PlaceInfoPage = () => {
     img,
     lefttable,
     alltable,
-    memberclosedtimehour,
-    memberclosedtimemin,
-    membermobile,
-    membername,
-    memberopentimehour,
-    memberopentimemin,
+
     memberposition,
-    memberspec,
-    memberstate,
-    memberstorepoint,
   } = data?.data || {};
 
   return (

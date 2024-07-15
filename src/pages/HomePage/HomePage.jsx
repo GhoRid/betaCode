@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import HomeHeader from "./components/HomeHeader";
-import Carousel from "./components/Carousel";
-import RecommendedPlace from "./components/RecommendedPlace";
-import CategoryBox from "./components/CategoryBox";
+import Carousel from "../../components/Carousel";
+import RecommendedPlace from "../../components/RecommendedPlace";
+import CategoryBox from "../../components/CategoryBox";
 import { useQuery } from "@tanstack/react-query";
 import { fetchRecommandList } from "../../apis/table/table";
-import { useEffect, useState } from "react";
-import advertiseImag from "../../assets/advertise.png";
+import { useEffect } from "react";
+import advertiseImage from "../../assets/advertise.png";
 import { useRecoilState } from "recoil";
 import { locationState } from "./../../recoil/locationState/atom";
+import Text from "../../components/Text";
 
 const Container = styled.div`
   /* width: 100%; */
@@ -21,10 +22,19 @@ const CarouselBox = styled.div`
   position: relative;
 `;
 
-const CAROUSEL_IMAGES = [advertiseImag, advertiseImag, advertiseImag];
+const RecommandHeader = styled.div`
+  margin-top: 32px;
+`;
+
+const Title = styled.div`
+  margin-left: 5%;
+  font-size: 16px;
+`;
+
+const CAROUSEL_IMAGES = [advertiseImage, advertiseImage, advertiseImage];
 
 const HomePage = () => {
-  const [currentlocationState, setCurrentLocationState] =
+  const [currentLocationState, setCurrentLocationState] =
     useRecoilState(locationState);
 
   useEffect(() => {
@@ -68,6 +78,8 @@ const HomePage = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["list"],
     queryFn: fetchRecommandList,
+    cacheTime: 10000,
+    staleTime: 10000,
     onError: (e) => {
       console.log(e);
     },
@@ -86,9 +98,17 @@ const HomePage = () => {
         <Carousel images={CAROUSEL_IMAGES} />
       </CarouselBox>
       <CategoryBox />
+      <RecommandHeader>
+        <Title>
+          <Text $fontSize="20px" $fontWeight="800" $textColor="#0047FC">
+            여기
+          </Text>{" "}
+          <Text $fontSize="18px">어때요?</Text>
+        </Title>
+      </RecommandHeader>
       <RecommendedPlace
         recommendedList={recommendedList}
-        locationState={currentlocationState}
+        locationState={currentLocationState}
       />
     </Container>
   );

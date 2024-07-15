@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
 import CarouselCard from "./CarouselCard";
 import styled from "styled-components";
-import Text from "./../../../components/Text";
+import Text from "./Text";
 
 const range = [-1, 0, 1];
 

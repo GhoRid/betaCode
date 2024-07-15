@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import locationIcon from "../../assets/location.webp";
 import styled from "styled-components";
 import { ReactComponent as Searching } from "../../assets/icons/Searching.svg";
+import { useNavigate } from "react-router-dom";
 
 const { kakao } = window;
 
@@ -56,6 +57,7 @@ const PanToButton = styled.button`
 
 const MapPage = () => {
   const [map, setMap] = useState(null);
+  const navigate = useNavigate();
 
   const [locationState, setLocationState] = useState({
     center: {
@@ -114,7 +116,7 @@ const MapPage = () => {
   return (
     <Container>
       <SearchingBarBox>
-        <SearchingBar>
+        <SearchingBar onClick={() => {}}>
           <Searching />
         </SearchingBar>
       </SearchingBarBox>

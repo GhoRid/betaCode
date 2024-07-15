@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Text from "../../../components/Text";
 import { ReactComponent as Searching } from "../../../assets/icons/Searching.svg";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -40,6 +41,7 @@ const SearchingBar = styled.button`
 `;
 
 const HomeHeader = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <TopBar>
@@ -74,7 +76,11 @@ const HomeHeader = () => {
           />
         </svg>
       </TopBar>
-      <SearchingBar>
+      <SearchingBar
+        onClick={() => {
+          navigate("/search");
+        }}
+      >
         <Searching />
       </SearchingBar>
     </Container>
