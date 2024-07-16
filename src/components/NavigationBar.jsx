@@ -14,6 +14,8 @@ const Container = styled.div`
   border-top: 1px solid #e0e0e0;
   align-items: center;
 
+  background-color: #e8f8ff;
+
   /* position: fixed;
   bottom: 0;
   z-index: 999999; */

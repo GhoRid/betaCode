@@ -76,7 +76,11 @@ const PlaceInfoPage = () => {
       <Box>
         <PlaceInfo infoList={data?.data} />
         <ButtonBox>
-          <RestTableButton>
+          <RestTableButton
+            onClick={() => {
+              navigate("table", { state: { place: name } });
+            }}
+          >
             <Text $fontSize="18px">남은 테이블</Text>
             <Text $fontSize="20px" $fontWeight="500" $textColor="#234993">
               {lefttable} / {alltable}
@@ -85,7 +89,6 @@ const PlaceInfoPage = () => {
         </ButtonBox>
         <MapBox position={memberposition} />
         <Review />
-        {/* <MenuList /> */}
       </Box>
     </Container>
   );

@@ -10,6 +10,7 @@ import NavigationBar from "./components/NavigationBar";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ResultPage from "./pages/ResultPage/ResultPage";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
+import TablePage from "./pages/TablePage/TablePage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path=":place" element={<PlaceInfoPage />} />
+          <Route path=":place/table" element={<TablePage />} />
           <Route path="map" element={<MapPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="search/result" element={<ResultPage />} />

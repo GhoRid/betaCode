@@ -13,7 +13,6 @@ const CategoryPage = () => {
   const currrentLocationState = useRecoilValue(locationState);
   const locatione = useLocation();
 
-  console.log(locatione);
   const category = locatione.state.category;
 
   const { isLoading, data } = useQuery({
