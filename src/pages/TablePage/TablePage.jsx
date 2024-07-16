@@ -22,6 +22,10 @@ const TextBox = styled.div`
   align-items: baseline;
 `;
 
+const ZindexBox = styled.div`
+  z-index: -100;
+`;
+
 const TablePage = () => {
   const location = useLocation();
   const name = location.state.place;
@@ -58,16 +62,19 @@ const TablePage = () => {
     <Container>
       <TablePageHeader
         name={name}
-        floor={currentFloor}
-        setFloor={setCurrentFloor}
+        currentFloor={currentFloor}
+        totalFloor={tableDatas.map((item) => item.floor)}
+        setCurrentFloor={setCurrentFloor}
       />
-      <TextBox>
-        <Text>남은 테이블</Text>
-        <Text $fontSize="24px" $fontWeight="600" $textColor="#48A7FF">
-          {floorTableList.lefttable}/{floorTableList.alltable}
-        </Text>
-      </TextBox>
-      {floorTableList && <TablesFrame floorTableList={floorTableList} />}
+      <ZindexBox>
+        <TextBox>
+          <Text>남은 테이블</Text>
+          <Text $fontSize="24px" $fontWeight="600" $textColor="#48A7FF">
+            {floorTableList.lefttable}/{floorTableList.alltable}
+          </Text>
+        </TextBox>
+        {floorTableList && <TablesFrame floorTableList={floorTableList} />}
+      </ZindexBox>
     </Container>
   );
 };

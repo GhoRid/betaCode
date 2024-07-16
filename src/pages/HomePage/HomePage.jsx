@@ -41,7 +41,7 @@ const HomePage = () => {
     let watchId;
 
     if (navigator.geolocation) {
-      watchId = navigator.geolocation.watchPosition(
+      watchId = navigator.geolocation.getCurrentPosition(
         (position) => {
           setCurrentLocationState((prev) => ({
             ...prev,

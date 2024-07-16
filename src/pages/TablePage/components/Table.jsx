@@ -3,6 +3,7 @@ import Text from "./../../../components/Text";
 
 const Container = styled.div`
   position: absolute;
+  z-index: 1;
 
   top: ${({ $py }) => $py}px;
   left: ${({ $px }) => $px}px;
