@@ -40,11 +40,9 @@ const Dropdown = styled.div`
   width: 100%;
   background-color: #c4e3ff;
   border-radius: 0 0 20px 20px;
-  transform: translateY(
-    ${({ $isOpen }) => ($isOpen ? "-60px" : "-100%")}
-  ); /* isOpen에 따라 translateY 적용 */
-  transition: transform 0.3s ease; /* transform에 transition 적용 */
-  z-index: 1; /* Dropdown의 z-index 설정 (낮은 값) */
+  transform: translateY(${({ $isOpen }) => ($isOpen ? "-60px" : "-100%")});
+  transition: transform 0.3s ease;
+  z-index: 1;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 `;
 
@@ -109,7 +107,7 @@ const TablePageHeader = ({
             onClick={handleDropdownToggle}
             style={{ cursor: "pointer" }}
           >
-            <Text $fontSize="24px" $fontWeight="700">
+            <Text $fontSize="24px" $fontWeight="600">
               {currentFloor}
             </Text>
             <svg
@@ -131,13 +129,13 @@ const TablePageHeader = ({
       </UpBox>
       <Dropdown $isOpen={isDropdownOpen}>
         <DropdownItem>
-          <Text $fontSize="24px" $fontWeight="700">
+          <Text $fontSize="24px" $fontWeight="600">
             빈칸
           </Text>
         </DropdownItem>
         {totalFloor.map((floor, index) => (
           <DropdownItem key={index} onClick={() => handleFloorSelect(floor)}>
-            <Text $fontSize="24px" $fontWeight="700">
+            <Text $fontSize="24px" $fontWeight="600">
               {floor}
             </Text>
           </DropdownItem>
