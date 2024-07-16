@@ -107,7 +107,7 @@ const TablePageHeader = ({
             onClick={handleDropdownToggle}
             style={{ cursor: "pointer" }}
           >
-            <Text $fontSize="24px" $fontWeight="600">
+            <Text $fontSize="24px" $fontWeight="600" $textColor="black">
               {currentFloor}
             </Text>
             <svg
