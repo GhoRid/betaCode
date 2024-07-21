@@ -8,10 +8,12 @@ const Container = styled.div`
   border-radius: 30px;
   background-color: #f1f0f5;
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
-  padding: 32px 0 12px 0;
+  padding: 8px 0;
 `;
 
-const RecommandHeader = styled.div``;
+const RecommandHeader = styled.div`
+  margin: 12px 0 24px 0;
+`;
 
 const Title = styled.div`
   margin-left: 5%;
