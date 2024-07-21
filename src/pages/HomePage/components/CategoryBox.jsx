@@ -14,7 +14,7 @@ const Container = styled.div`
   gap: 12px;
 `;
 
-const CategoryCard = styled.div`
+const CategoryCard = styled.button`
   background-color: white;
   border-radius: 20px;
   padding: 15px;
@@ -52,12 +52,20 @@ const CategoryBox = () => {
 
   return (
     <Container>
-      <CategoryCard>
+      <CategoryCard
+        onClick={() => {
+          navigate("category/밥집");
+        }}
+      >
         <CategoryTitle>밥집</CategoryTitle>
         <CategoryDescription>기다림 없이 빠른 식사</CategoryDescription>
         <CategoryIcon src={restorantImage} alt="밥집" />
       </CategoryCard>
-      <CategoryCard>
+      <CategoryCard
+        onClick={() => {
+          navigate("category/술집");
+        }}
+      >
         <CategoryTitle>술집</CategoryTitle>
         <CategoryDescription>
           2차로 갈 술집이 급하게 <br />
@@ -65,7 +73,11 @@ const CategoryBox = () => {
         </CategoryDescription>
         <CategoryIcon src={beerImage} alt="술집" />
       </CategoryCard>
-      <CategoryCard>
+      <CategoryCard
+        onClick={() => {
+          navigate("category/카페");
+        }}
+      >
         <CategoryTitle>카페</CategoryTitle>
         <CategoryDescription>
           더운 여름날은 역시 <br />
@@ -73,7 +85,11 @@ const CategoryBox = () => {
         </CategoryDescription>
         <CategoryIcon src={cafeImage} alt="카페" />
       </CategoryCard>
-      <CategoryCard>
+      <CategoryCard
+        onClick={() => {
+          navigate();
+        }}
+      >
         <CategoryTitle>기타</CategoryTitle>
         <CategoryDescription>
           세상의 모든 빈자리

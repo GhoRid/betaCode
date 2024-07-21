@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchSearchingResult } from "../../apis/table/table";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { locationState } from "../../recoil/locationState/atom";
@@ -56,7 +56,7 @@ const ResultPage = () => {
   const location = useLocation();
   const currrentLocationState = useRecoilValue(locationState);
 
-  const { isLoading, data } = useQuery({
+  const { isLoading, data, refetch } = useQuery({
     queryKey: ["searching"],
     queryFn: () => fetchSearchingResult(location.state.name),
     enabled: !!location.state,
@@ -66,6 +66,10 @@ const ResultPage = () => {
   });
 
   const list = data?.data;
+
+  useEffect(() => {
+    refetch();
+  }, [location.state.name, refetch]);
 
   if (isLoading) return <div>로딩중...</div>;
 

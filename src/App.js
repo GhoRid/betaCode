@@ -6,7 +6,6 @@ import MapPage from "./pages/MapPage/MapPage";
 import TestPage from "./pages/TestPage/TestPage";
 import PlaceInfoPage from "./pages/PlaceInfoPage/PlaceInfoPage";
 import ScrollToTop from "./components/ScrollToTop";
-import NavigationBar from "./components/NavigationBar";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ResultPage from "./pages/ResultPage/ResultPage";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";

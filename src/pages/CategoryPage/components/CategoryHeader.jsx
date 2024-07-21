@@ -17,7 +17,11 @@ const Container = styled.div`
     0 -5px 15px -4px rgba(0, 0, 0, 0.4);
 `;
 
-const Box = styled.button`
+const Box = styled.button.attrs((props) => ({
+  // 이 부분에서 active를 HTML 속성으로 전달하지 않음
+  // active는 단지 styled-components의 조건부 스타일링에만 사용됨
+  "data-active": props.active ? "true" : "false",
+}))`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,11 +30,9 @@ const Box = styled.button`
   position: relative; /* Ensure relative positioning for pseudo-element */
 
   /* Apply border-bottom based on category */
-  ${(props) =>
-    props.active &&
-    `
+  &[data-active="true"] {
     border-bottom: 2px solid blue; /* Replace with your desired active border-bottom style */
-  `}
+  }
 
   /* Smooth transition for border-bottom */
   transition: border-bottom 0.3s ease;
@@ -49,18 +51,13 @@ const Box = styled.button`
     height: 2px;
     background-color: blue;
     transform: scaleX(0);
-    /* transform-origin: left; */
     transition: transform 0.3s ease;
   }
 
   /* Expand the pseudo-element when active */
-  ${(props) =>
-    props.active &&
-    `
-    &::after {
-      transform: scaleX(1); /* Expand to full width */
-    }
-  `}
+  &[data-active="true"]::after {
+    transform: scaleX(1); /* Expand to full width */
+  }
 `;
 
 const CategoryHeader = ({ category }) => {
