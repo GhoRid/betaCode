@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import SearchingBar from "../../components/SearchingBar";
-import advertiseImage from "../../assets/advertise.png";
+import advertiseImage from "../../assets/advertise.webp";
 import Carousel from "../../components/Carousel";
 import Ranking from "./components/Ranking";
 import RecommendedPlace from "../../components/RecommendedPlace";

@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import HomeHeader from "./components/HomeHeader";
-import Carousel from "../../components/Carousel";
-import CategoryBox from "./components/CategoryBox";
 import { useQuery } from "@tanstack/react-query";
 import { fetchRecommandList } from "../../apis/table/table";
 import { useEffect } from "react";
-import advertiseImage from "../../assets/advertise.png";
 import { useRecoilState } from "recoil";
 import { locationState } from "./../../recoil/locationState/atom";
+import HomeHeader from "./components/HomeHeader";
+import Carousel from "../../components/Carousel";
+import CategoryBox from "./components/CategoryBox";
 import RecommendedPlaceBox from "./components/RecommandPlaceBox";
+import advertiseImage from "../../assets/advertise.webp";
 
 const Container = styled.div`
   background-color: #4887e4;
