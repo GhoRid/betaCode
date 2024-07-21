@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import Card from "./Card";
 
-const Container = styled.div`
-  width: 100%;
-`;
-
 const RecommendedBox = styled.div`
   max-width: 400px;
   width: 95%;
@@ -16,14 +12,12 @@ const RecommendedBox = styled.div`
 
 const RecommendedPlace = ({ recommendedList, locationState }) => {
   return (
-    <Container>
-      <RecommendedBox>
-        {Array.isArray(recommendedList) &&
-          recommendedList.map((element, index) => (
-            <Card key={index} element={element} locationState={locationState} />
-          ))}
-      </RecommendedBox>
-    </Container>
+    <RecommendedBox>
+      {Array.isArray(recommendedList) &&
+        recommendedList.map((element, index) => (
+          <Card key={index} element={element} locationState={locationState} />
+        ))}
+    </RecommendedBox>
   );
 };
 

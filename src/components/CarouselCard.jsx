@@ -8,7 +8,7 @@ const Card = styled(motion.div)`
   height: 100%;
   padding: 6px;
   border-radius: 30px;
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 그림자 추가 */
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
 `;
 
 const CarouselCard = ({ index, renderPage, x, onDragEnd }) => {

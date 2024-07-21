@@ -1,19 +1,17 @@
 import styled from "styled-components";
 import HomeHeader from "./components/HomeHeader";
 import Carousel from "../../components/Carousel";
-import RecommendedPlace from "../../components/RecommendedPlace";
-import CategoryBox from "../../components/CategoryBox";
+import CategoryBox from "./components/CategoryBox";
 import { useQuery } from "@tanstack/react-query";
 import { fetchRecommandList } from "../../apis/table/table";
 import { useEffect } from "react";
 import advertiseImage from "../../assets/advertise.png";
 import { useRecoilState } from "recoil";
 import { locationState } from "./../../recoil/locationState/atom";
-import Text from "../../components/Text";
+import RecommendedPlaceBox from "./components/RecommandPlaceBox";
 
 const Container = styled.div`
-  /* width: 100%; */
-  /* position: relative; */
+  background-color: #4887e4;
 `;
 
 const CarouselBox = styled.div`
@@ -22,13 +20,18 @@ const CarouselBox = styled.div`
   position: relative;
 `;
 
-const RecommandHeader = styled.div`
-  margin-top: 32px;
+const ContentsBoxShadow = styled.div`
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+  background-color: #8eabc6;
+  padding-top: 8px;
+  margin-top: 28px;
 `;
 
-const Title = styled.div`
-  margin-left: 5%;
-  font-size: 16px;
+const ContentsBox = styled.div`
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+  background-color: #f7f9fc;
 `;
 
 const CAROUSEL_IMAGES = [advertiseImage, advertiseImage, advertiseImage];
@@ -97,19 +100,15 @@ const HomePage = () => {
       <CarouselBox>
         <Carousel images={CAROUSEL_IMAGES} />
       </CarouselBox>
-      <CategoryBox />
-      <RecommandHeader>
-        <Title>
-          <Text $fontSize="20px" $fontWeight="800" $textColor="#0047FC">
-            여기
-          </Text>{" "}
-          <Text $fontSize="18px">어때요?</Text>
-        </Title>
-      </RecommandHeader>
-      <RecommendedPlace
-        recommendedList={recommendedList}
-        locationState={currentLocationState}
-      />
+      <ContentsBoxShadow>
+        <ContentsBox>
+          <CategoryBox />
+          <RecommendedPlaceBox
+            recommendedList={recommendedList}
+            currentLocationState={currentLocationState}
+          />
+        </ContentsBox>
+      </ContentsBoxShadow>
     </Container>
   );
 };

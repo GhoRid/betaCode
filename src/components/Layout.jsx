@@ -4,6 +4,7 @@ import NavigationBar from "./NavigationBar";
 
 const Container = styled.div`
   max-width: 500px;
+  min-width: 300px;
   width: 100dvw;
   height: 93vh;
   height: 93dvh;

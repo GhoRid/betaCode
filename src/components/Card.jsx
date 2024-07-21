@@ -2,21 +2,19 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Text from "./Text";
 import { useEffect, useState } from "react";
-import { Map } from "react-kakao-maps-sdk";
 import { translateDistance } from "../utils/tranlateDistance";
 
 const { kakao } = window;
 
 const Container = styled.div`
   width: 100%;
-  height: 150px;
+  height: 140px;
   background-color: white;
-  border-radius: 12px;
+  border-radius: 20px;
   cursor: pointer;
-  /* box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 1); */
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  /* object-fit: cover; */
   padding: 12px;
   display: flex;
   gap: 12px;
@@ -25,7 +23,7 @@ const Container = styled.div`
 const Image = styled.img`
   height: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 12px;
+  border-radius: 20px;
 `;
 
 const ContentBox = styled.div`
