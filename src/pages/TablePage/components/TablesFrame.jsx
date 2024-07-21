@@ -49,12 +49,14 @@ const TablesFrame = ({ floorTableList = { tableConfigModels: [] } }) => {
   }, [displaysizex, displaysizey]);
 
   return (
-    <Container width={dimensions.width} height={dimensions.height}>
-      {floorTableList.tableConfigModels &&
-        floorTableList.tableConfigModels.map((tableInfo, index) => (
-          <Table key={index} tableInfo={tableInfo} ratio={ratio} />
-        ))}
-    </Container>
+    dimensions.height && (
+      <Container width={dimensions.width} height={dimensions.height}>
+        {floorTableList.tableConfigModels &&
+          floorTableList.tableConfigModels.map((tableInfo, index) => (
+            <Table key={index} tableInfo={tableInfo} ratio={ratio} />
+          ))}
+      </Container>
+    )
   );
 };
 

@@ -10,34 +10,6 @@ import SearchingBar from "../../components/SearchingBar";
 
 const Container = styled.div``;
 
-const Header = styled.form`
-  width: 100%;
-  height: 52px;
-  background-color: white;
-  border-radius: 0 0 20px 20px;
-  padding: 0 16px;
-
-  display: flex;
-  align-items: center;
-  box-shadow: 0 5px 15px -4px rgba(0, 0, 0, 0.4),
-    0 -5px 15px -4px rgba(0, 0, 0, 0.4);
-`;
-
-const InputBox = styled.input`
-  width: 100%;
-  height: inherit;
-  padding: 12px;
-  color: black;
-  background-color: white;
-  font-size: 20px;
-  border: none;
-  outline: none;
-
-  &::placeholder {
-    color: gray;
-  }
-`;
-
 const ResultBox = styled.div`
   width: 100%;
 `;

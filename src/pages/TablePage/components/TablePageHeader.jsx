@@ -64,8 +64,6 @@ const TablePageHeader = ({
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  console.log(totalFloor);
-
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };

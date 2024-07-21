@@ -7,7 +7,6 @@ import PlaceInfo from "./components/PlaceInfo";
 import Review from "./components/Review";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPlaceInfo } from "../../apis/table/table";
-import { useEffect, useRef } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -35,7 +34,7 @@ const RestTableButton = styled.button`
   width: 90%;
   height: 80px;
   border-radius: 25px;
-  background-color: #c4e3ff;
+  background-color: #4887e4;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,8 +80,10 @@ const PlaceInfoPage = () => {
               navigate("table", { state: { place: name } });
             }}
           >
-            <Text $fontSize="18px">남은 테이블</Text>
-            <Text $fontSize="20px" $fontWeight="500" $textColor="#234993">
+            <Text $fontSize="20px" $fontWeight="500" $textColor="white">
+              남은 테이블
+            </Text>
+            <Text $fontSize="20px" $fontWeight="500" $textColor="white">
               {lefttable} / {alltable}
             </Text>
           </RestTableButton>

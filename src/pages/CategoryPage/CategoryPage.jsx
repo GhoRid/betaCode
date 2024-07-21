@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchCategory } from "../../apis/table/table";
 import CategoryHeader from "./components/CategoryHeader";
 import styled from "styled-components";
@@ -13,8 +13,6 @@ const CategoryPage = () => {
   const currrentLocationState = useRecoilValue(locationState);
 
   const { category } = useParams();
-
-  // console.log(name);
 
   const { isLoading, data } = useQuery({
     queryKey: ["category", category],
