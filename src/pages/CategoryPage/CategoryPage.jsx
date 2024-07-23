@@ -6,6 +6,7 @@ import styled from "styled-components";
 import RecommendedPlace from "../../components/RecommendedPlace";
 import { locationState } from "../../recoil/locationState/atom";
 import { useRecoilValue } from "recoil";
+import Loader from "../../components/Loader";
 
 const Container = styled.div``;
 
@@ -24,7 +25,9 @@ const CategoryPage = () => {
 
   const recommendedList = data?.data;
 
-  if (isLoading) return <div>로딩중...</div>;
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <Container>

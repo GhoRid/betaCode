@@ -9,6 +9,7 @@ import Carousel from "../../components/Carousel";
 import CategoryBox from "./components/CategoryBox";
 import RecommendedPlaceBox from "./components/RecommandPlaceBox";
 import advertiseImage from "../../assets/advertise.webp";
+import Loader from "../../components/Loader";
 
 const Container = styled.div`
   background-color: #4887e4;
@@ -91,7 +92,7 @@ const HomePage = () => {
   const recommendedList = data?.data;
 
   if (isLoading) {
-    return <div>로딩중...</div>;
+    return <Loader />;
   }
 
   return (

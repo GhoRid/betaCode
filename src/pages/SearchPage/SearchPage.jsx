@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { locationState } from "../../recoil/locationState/atom";
 import { useRecoilValue } from "recoil";
 import Text from "../../components/Text";
+import Loader from "../../components/Loader";
 
 const Container = styled.div``;
 
@@ -47,7 +48,7 @@ const SearchPage = () => {
   const recommendedList = data?.data;
 
   if (isLoading) {
-    return <div>로딩중...</div>;
+    return <Loader />;
   }
 
   return (

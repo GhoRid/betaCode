@@ -7,6 +7,7 @@ import PlaceInfo from "./components/PlaceInfo";
 import Review from "./components/Review";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPlaceInfo } from "../../apis/table/table";
+import Loader from "../../components/Loader";
 
 const Container = styled.div`
   width: 100%;
@@ -65,7 +66,7 @@ const PlaceInfoPage = () => {
   const { img, lefttable, alltable, memberposition } = data?.data || {};
 
   if (isLoading) {
-    return <div>로딩중...</div>;
+    return <Loader />;
   }
 
   return (
