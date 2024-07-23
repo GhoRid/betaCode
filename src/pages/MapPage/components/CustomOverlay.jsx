@@ -15,6 +15,15 @@ const OpenBox = styled.button`
   justify-content: center;
 `;
 
+const TextBox = styled.div`
+  padding: 4px 8px;
+  background-color: #4887e4;
+  border-radius: 4px;
+  border: 1px solid #4887e4;
+  position: absolute;
+  top: -32px;
+`;
+
 const CustomOverlay = ({ data, isOpen, onToggle }) => {
   const [center, setCenter] = useState({
     lat: 35.17828963,
@@ -28,7 +37,6 @@ const CustomOverlay = ({ data, isOpen, onToggle }) => {
   useEffect(() => {
     geocoder.addressSearch(data.memberposition, function (result, status) {
       if (status === kakao.maps.services.Status.OK) {
-        // console.log(result);
         setCenter({
           lat: result[0].y,
           lng: result[0].x,
@@ -46,14 +54,12 @@ const CustomOverlay = ({ data, isOpen, onToggle }) => {
               navigate(`/${data.membername}`);
             }}
           >
+            <TextBox>
+              <Text $fontSize="20px" $fontWeight="500" $textColor="white">
+                {data.membername}
+              </Text>
+            </TextBox>
             <Traffic />
-            <Text
-              $fontSize="20px"
-              $fontWeight="600"
-              style={{ WebkitTextStroke: "2px red" }}
-            >
-              {data.membername}
-            </Text>
           </OpenBox>
         </CustomOverlayMap>
       ) : (
