@@ -129,11 +129,11 @@ const MapPage = () => {
 
   return (
     <Container>
-      <SearchingBarBox>
+      {/* <SearchingBarBox>
         <SearchingBar onClick={() => {}}>
           <Searching />
         </SearchingBar>
-      </SearchingBarBox>
+      </SearchingBarBox> */}
       <Map
         id="map"
         style={{

@@ -60,7 +60,7 @@ const CategoryBox = () => {
         }}
       >
         <CategoryTitle>밥집</CategoryTitle>
-        <CategoryDescription>기다림 없이 빠른 식사</CategoryDescription>
+        <CategoryDescription>기다림 없이 빠른 {"\n"}식사</CategoryDescription>
         <CategoryIcon src={restorantImage} alt="밥집" />
       </CategoryCard>
       <CategoryCard
