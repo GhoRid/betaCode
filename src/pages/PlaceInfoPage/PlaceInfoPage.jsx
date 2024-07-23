@@ -11,7 +11,6 @@ import Loader from "../../components/Loader";
 import { useRecoilValue } from "recoil";
 import { locationState } from "../../recoil/locationState/atom";
 import { useEffect, useState } from "react";
-// import { translateDistance } from "../../utils/tranlateDistance";
 import { translateDistance } from "./../../utils/tranlateDistance";
 
 const { kakao } = window;

@@ -41,12 +41,8 @@ const Box = styled.div`
 
 const PlaceInfo = ({ infoList, distance }) => {
   const {
-    memberclosedtimehour,
-    memberclosedtimemin,
     membermobile,
     membername,
-    memberopentimehour,
-    memberopentimemin,
     memberposition,
     memberspec,
     memberstate,
