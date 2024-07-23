@@ -119,7 +119,7 @@ const PlaceInfoPage = () => {
             }}
           >
             <Text $fontSize="20px" $fontWeight="500" $textColor="white">
-              남은 테이블
+              남은 테이블 보기
             </Text>
             <Text $fontSize="20px" $fontWeight="500" $textColor="white">
               {lefttable} / {alltable}
