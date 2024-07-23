@@ -11,7 +11,7 @@ const Container = styled.div`
   padding: 20px 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 24px;
 `;
 
 const CategoryCard = styled.button`
@@ -30,12 +30,14 @@ const CategoryTitle = styled.h3`
   font-size: 20px;
   margin: 0 0 5px 0;
   font-weight: 800;
+  color: black;
 `;
 
-const CategoryDescription = styled.p`
-  font-size: 14px;
-  margin: 0;
+const CategoryDescription = styled.span`
+  font-size: 16px;
   color: #666;
+  text-align: left;
+  white-space: pre-line;
 `;
 
 const CategoryIcon = styled.img`
@@ -67,10 +69,7 @@ const CategoryBox = () => {
         }}
       >
         <CategoryTitle>술집</CategoryTitle>
-        <CategoryDescription>
-          2차로 갈 술집이 급하게 <br />
-          필요할 때
-        </CategoryDescription>
+        <CategoryDescription>2차로 가볍게 술집</CategoryDescription>
         <CategoryIcon src={beerImage} alt="술집" />
       </CategoryCard>
       <CategoryCard
@@ -80,7 +79,7 @@ const CategoryBox = () => {
       >
         <CategoryTitle>카페</CategoryTitle>
         <CategoryDescription>
-          더운 여름날은 역시 <br />
+          더운 여름날은 역시 {"\n"}
           카페에서
         </CategoryDescription>
         <CategoryIcon src={cafeImage} alt="카페" />
@@ -92,8 +91,8 @@ const CategoryBox = () => {
       >
         <CategoryTitle>기타</CategoryTitle>
         <CategoryDescription>
-          세상의 모든 빈자리
-          <br /> 블루데이블
+          세상의 모든 빈자리 {"\n"}
+          블루테이블
         </CategoryDescription>
         <CategoryIcon src={tableImage} alt="기타" />
       </CategoryCard>

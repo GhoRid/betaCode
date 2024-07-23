@@ -16,7 +16,7 @@ const Container = styled.div`
 const TextBox = styled.div`
   margin: 12px 12px 0;
   padding: 8px 8px;
-  border-bottom: 1px solid #58afff;
+  border-bottom: 1px solid #4887e4;
   display: flex;
   gap: 8px;
   align-items: baseline;
@@ -69,7 +69,7 @@ const TablePage = () => {
       <ZindexBox>
         <TextBox>
           <Text>남은 테이블</Text>
-          <Text $fontSize="24px" $fontWeight="600" $textColor="#48A7FF">
+          <Text $fontSize="24px" $fontWeight="600" $textColor="#4887E4">
             {floorTableList.lefttable}/{floorTableList.alltable}
           </Text>
         </TextBox>

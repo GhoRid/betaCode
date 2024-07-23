@@ -20,7 +20,7 @@ const UpBox = styled.div`
   align-items: center;
   position: relative;
   z-index: 2;
-  background-color: #c4e3ff;
+  background-color: #4887e4;
   box-sizing: border-box; /* border-box로 설정 */
 `;
 
@@ -38,7 +38,7 @@ const FloorButton = styled.button`
 
 const Dropdown = styled.div`
   width: 100%;
-  background-color: #c4e3ff;
+  background-color: #4887e4;
   border-radius: 0 0 20px 20px;
   transform: translateY(${({ $isOpen }) => ($isOpen ? "-60px" : "-100%")});
   transition: transform 0.3s ease;
@@ -52,7 +52,7 @@ const DropdownItem = styled.div`
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
-  border-top: 1px solid #48a7ff;
+  border-top: 1px solid #fff;
 `;
 
 const TablePageHeader = ({
@@ -90,7 +90,7 @@ const TablePageHeader = ({
           >
             <path
               d="M7.66667 1.33337L1 8.00004M1 8.00004L7.66667 14.6667M1 8.00004H21"
-              stroke="#28303F"
+              stroke="white"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -98,14 +98,14 @@ const TablePageHeader = ({
           </svg>
         </button>
         <Box>
-          <Text $fontSize="24px" $fontWeight="500">
+          <Text $fontSize="24px" $fontWeight="600" $textColor="white">
             {name}
           </Text>
           <FloorButton
             onClick={handleDropdownToggle}
             style={{ cursor: "pointer" }}
           >
-            <Text $fontSize="24px" $fontWeight="600" $textColor="black">
+            <Text $fontSize="24px" $fontWeight="600" $textColor="white">
               {currentFloor}
             </Text>
             <svg
@@ -119,7 +119,7 @@ const TablePageHeader = ({
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d="M0.414376 0.531506C0.673133 0.20806 1.1451 0.155619 1.46855 0.414376L6.00003 4.03956L10.5315 0.414376C10.855 0.155619 11.3269 0.20806 11.5857 0.531506C11.8444 0.854953 11.792 1.32692 11.4685 1.58568L6.46855 5.58568C6.19464 5.80481 5.80542 5.80481 5.53151 5.58568L0.531506 1.58568C0.20806 1.32692 0.155619 0.854953 0.414376 0.531506Z"
-                fill="#28303F"
+                fill="white"
               />
             </svg>
           </FloorButton>
@@ -133,7 +133,7 @@ const TablePageHeader = ({
         </DropdownItem>
         {totalFloor.map((floor, index) => (
           <DropdownItem key={index} onClick={() => handleFloorSelect(floor)}>
-            <Text $fontSize="24px" $fontWeight="600">
+            <Text $fontSize="24px" $fontWeight="600" $textColor="white">
               {floor}
             </Text>
           </DropdownItem>

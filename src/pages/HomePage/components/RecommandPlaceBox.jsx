@@ -25,10 +25,12 @@ const RecommendedPlaceBox = ({ recommendedList, currentLocationState }) => {
     <Container>
       <RecommandHeader>
         <Title>
-          <Text $fontSize="32px" $fontWeight="800" $textColor="#217BFF">
+          <Text $fontSize="24px" $fontWeight="800" $textColor="#217BFF">
             여기
           </Text>{" "}
-          <Text $fontSize="20px">어때요?</Text>
+          <Text $fontSize="20px" $fontWeight="700">
+            어때요?
+          </Text>
         </Title>
       </RecommandHeader>
       <RecommendedPlace

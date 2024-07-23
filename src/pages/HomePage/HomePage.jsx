@@ -76,7 +76,7 @@ const HomePage = () => {
         navigator.geolocation.clearWatch(watchId);
       }
     };
-  }, []);
+  }, [setCurrentLocationState]);
 
   const { isLoading, data } = useQuery({
     queryKey: ["list"],
