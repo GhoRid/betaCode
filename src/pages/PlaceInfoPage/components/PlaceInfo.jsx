@@ -39,7 +39,7 @@ const Box = styled.div`
   margin-top: 8px;
 `;
 
-const PlaceInfo = ({ infoList }) => {
+const PlaceInfo = ({ infoList, distance }) => {
   const {
     memberclosedtimehour,
     memberclosedtimemin,
@@ -87,7 +87,7 @@ const PlaceInfo = ({ infoList }) => {
             />
           </svg>
           <Text $fontSize="12px" $textColor="#58AFFF">
-            1.2km
+            {distance}
           </Text>
         </DistanceBox>
       </TopBox>

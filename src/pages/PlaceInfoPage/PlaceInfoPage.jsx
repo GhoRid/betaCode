@@ -8,6 +8,13 @@ import Review from "./components/Review";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPlaceInfo } from "../../apis/table/table";
 import Loader from "../../components/Loader";
+import { useRecoilValue } from "recoil";
+import { locationState } from "../../recoil/locationState/atom";
+import { useEffect, useState } from "react";
+// import { translateDistance } from "../../utils/tranlateDistance";
+import { translateDistance } from "./../../utils/tranlateDistance";
+
+const { kakao } = window;
 
 const Container = styled.div`
   width: 100%;
@@ -53,6 +60,9 @@ const Box = styled.div`
 const PlaceInfoPage = () => {
   const { place: name } = useParams();
   const navigate = useNavigate();
+  const currentLocationState = useRecoilValue(locationState);
+  const [point, setPoint] = useState({});
+  const [distance, setDistance] = useState(0);
 
   const { isLoading, data } = useQuery({
     queryKey: ["place", name],
@@ -65,6 +75,34 @@ const PlaceInfoPage = () => {
 
   const { img, lefttable, alltable, memberposition } = data?.data || {};
 
+  const geocoder = new kakao.maps.services.Geocoder();
+
+  useEffect(() => {
+    geocoder.addressSearch(memberposition, (result, status) => {
+      if (status === kakao.maps.services.Status.OK) {
+        setPoint({ lat: result[0].address.y, lng: result[0].address.x });
+      }
+    });
+  }, [currentLocationState, memberposition]);
+
+  const line = new kakao.maps.Polyline({
+    path: [
+      new kakao.maps.LatLng(
+        currentLocationState.center.lat,
+        currentLocationState.center.lng
+      ),
+      new kakao.maps.LatLng(point.lat, point.lng),
+    ],
+    strokeWeight: 3,
+    strokeColor: "#db4040",
+    strokeOpacity: 1,
+    strokeStyle: "solid",
+  });
+
+  useEffect(() => {
+    setDistance(translateDistance(line.getLength()));
+  }, [line]);
+
   if (isLoading) {
     return <Loader />;
   }
@@ -74,7 +112,7 @@ const PlaceInfoPage = () => {
       <Header />
       <MockImage src={img} />
       <Box>
-        <PlaceInfo infoList={data?.data} />
+        <PlaceInfo infoList={data?.data} distance={distance} />
         <ButtonBox>
           <RestTableButton
             onClick={() => {
