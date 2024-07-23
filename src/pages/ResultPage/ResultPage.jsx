@@ -7,6 +7,7 @@ import { useRecoilValue } from "recoil";
 import { locationState } from "../../recoil/locationState/atom";
 import Card from "../../components/Card";
 import SearchingBar from "../../components/SearchingBar";
+import Loader from "../../components/Loader";
 
 const Container = styled.div``;
 
@@ -43,15 +44,13 @@ const ResultPage = () => {
     refetch();
   }, [location.state.name, refetch]);
 
-  if (isLoading) return <div>로딩중...</div>;
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <Container>
-      <SearchingBar
-        text={text}
-        setText={setText}
-        placeholder={location.state.name}
-      />
+      <SearchingBar text={text} setText={setText} />
       <ResultBox>
         <Lists>
           {Array.isArray(list) &&

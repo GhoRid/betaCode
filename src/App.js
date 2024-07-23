@@ -10,6 +10,7 @@ import SearchPage from "./pages/SearchPage/SearchPage";
 import ResultPage from "./pages/ResultPage/ResultPage";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import TablePage from "./pages/TablePage/TablePage";
+import MyPage from "./pages/MyPage/MyPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="search" element={<SearchPage />} />
           <Route path="search/result" element={<ResultPage />} />
           <Route path="category/:category" element={<CategoryPage />} />
+          <Route path="mypage" element={<MyPage />} />
           <Route path="test" element={<TestPage />} />
         </Route>
       </Routes>

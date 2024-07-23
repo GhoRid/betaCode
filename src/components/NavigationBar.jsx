@@ -15,10 +15,6 @@ const Container = styled.div`
   align-items: center;
 
   background-color: #fff;
-
-  /* position: fixed;
-  bottom: 0;
-  z-index: 999999; */
 `;
 
 const Box = styled.div`
@@ -72,7 +68,7 @@ const NavigationBar = () => {
           </svg>
         </Box>
       </NavLink>
-      <NavLink>
+      <NavLink to="/mypage">
         <Box>
           <svg
             width="20"
