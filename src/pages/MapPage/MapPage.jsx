@@ -61,6 +61,7 @@ const PanToButton = styled.button`
 const MapPage = () => {
   const [map, setMap] = useState(null);
   const [openIndex, setOpenIndex] = useState(null);
+  const navigate = useNavigate();
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -130,7 +131,11 @@ const MapPage = () => {
   return (
     <Container>
       <SearchingBarBox>
-        <SearchingBar onClick={() => {}}>
+        <SearchingBar
+          onClick={() => {
+            navigate("/search");
+          }}
+        >
           <Searching />
         </SearchingBar>
       </SearchingBarBox>
