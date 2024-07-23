@@ -27,12 +27,6 @@ const Box = styled.button`
   &:last-child {
     border-right: none;
   }
-
-  ${(props) =>
-    props.active &&
-    `
-    background-color: #f0f0f0;
-  `}
 `;
 
 const MovingBorder = styled.div`
