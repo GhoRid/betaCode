@@ -47,7 +47,19 @@ const PlaceInfo = ({ infoList, distance }) => {
     memberspec,
     memberstate,
     memberstorepoint,
+    memberclosedtimehour,
+    memberclosedtimemin,
+    memberopentimehour,
+    memberopentimemin,
   } = infoList || {};
+
+  const zeroPadding = (num) => {
+    console.log(num);
+    if (num < 10) {
+      return "0" + num;
+    }
+    return num;
+  };
 
   return (
     <Container>
@@ -149,7 +161,22 @@ const PlaceInfo = ({ infoList, distance }) => {
               fill="#58AFFF"
             />
           </svg>
-          <Text $fontSize="12px">{memberstate ? "영업 중" : "영업 종료"}</Text>
+          {memberstate ? (
+            <Text $fontSize="12px">영업 중 </Text>
+          ) : (
+            <Text $fontSize="12px" $textColor="red">
+              영업 종료{" "}
+            </Text>
+          )}
+          <Text $fontSize="12px">
+            {zeroPadding(memberopentimehour) +
+              ":" +
+              zeroPadding(memberopentimemin) +
+              " ~ " +
+              zeroPadding(memberclosedtimehour) +
+              ":" +
+              zeroPadding(memberclosedtimemin)}
+          </Text>
         </Box>
         <Box>
           <svg
