@@ -2,6 +2,8 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 import styled from "styled-components";
 import Text from "../../../components/Text";
 import { useEffect, useState } from "react";
+import locationIcon from "../../../assets/location.webp";
+import Traffic from "../../../assets/icons/traffic.svg";
 
 const { kakao } = window;
 
@@ -29,7 +31,6 @@ const MapStyle = {
 };
 
 const MapBox = ({ position }) => {
-  const [map, setMap] = useState(null);
   const [center, setCenter] = useState({
     lat: 35.17828963,
     lng: 126.909254315,
@@ -54,8 +55,11 @@ const MapBox = ({ position }) => {
         <Text $fontSize="16px" $fontWeight="600">
           지도
         </Text>
-        <Map center={center} style={MapStyle} level={4} onCreate={setMap}>
-          <MapMarker position={center} />
+        <Map center={center} style={MapStyle} level={4}>
+          <MapMarker
+            position={center}
+            image={{ src: Traffic, size: { width: 45, height: 45 } }}
+          />
         </Map>
       </Box>
     </Container>
