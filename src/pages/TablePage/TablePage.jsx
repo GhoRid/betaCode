@@ -6,6 +6,7 @@ import { fetchPlaceTableInfo } from "../../apis/table/table";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import TablesFrame from "./components/TablesFrame";
+import Loader from "../../components/Loader";
 
 const Container = styled.div`
   position: relative;
@@ -56,7 +57,9 @@ const TablePage = () => {
     }
   }, [currentFloor, tableDatas]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <Container>

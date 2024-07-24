@@ -84,10 +84,8 @@ const MapPage = () => {
   });
 
   useEffect(() => {
-    let watchId;
-
     if (navigator.geolocation) {
-      watchId = navigator.geolocation.getCurrentPosition(
+      navigator.geolocation.getCurrentPosition(
         (position) => {
           setLocationState((prev) => ({
             ...prev,
@@ -113,12 +111,6 @@ const MapPage = () => {
         isLoading: false,
       }));
     }
-
-    return () => {
-      if (watchId !== undefined) {
-        navigator.geolocation.clearWatch(watchId);
-      }
-    };
   }, []);
 
   const panTo = (point) => {
