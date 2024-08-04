@@ -30,7 +30,7 @@ const CategoryTitle = styled.h3`
   font-size: 20px;
   margin: 0 0 5px 0;
   font-weight: 800;
-  color: black;
+  color: #0071a8;
 `;
 
 const CategoryDescription = styled.span`
