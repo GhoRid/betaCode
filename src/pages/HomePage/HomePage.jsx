@@ -10,32 +10,45 @@ import CategoryBox from "./components/CategoryBox";
 import RecommendedPlaceBox from "./components/RecommandPlaceBox";
 import advertiseImage from "../../assets/advertise.webp";
 import Loader from "../../components/Loader";
+import HomeSearchingBar from "./components/HomeSearchingBar";
+import BannerImage from "../../assets/Banner.png";
 
 const Container = styled.div`
-  background-color: #4887e4;
+  background-color: #fcfcfc;
 `;
 
 const CarouselBox = styled.div`
   height: 200px;
-  margin: 2dvh 3.5dvw;
+  margin: 2dvh;
   position: relative;
 `;
 
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+`;
+
 const ContentsBoxShadow = styled.div`
-  width: 100%;
   border-radius: 30px 30px 0 0;
-  background-color: #8eabc6;
-  padding-top: 8px;
-  margin-top: 28px;
+  background-color: #9dbad6;
+  padding-top: 4px;
 `;
 
 const ContentsBox = styled.div`
   width: 100%;
   border-radius: 30px 30px 0 0;
   background-color: #f7f9fc;
+  position: relative; /* 독립적인 레이아웃 설정 */
 `;
 
-const CAROUSEL_IMAGES = [advertiseImage, advertiseImage, advertiseImage];
+const Image = styled.img`
+  width: 350px;
+  height: auto;
+`;
 
 const HomePage = () => {
   const [currentLocationState, setCurrentLocationState] =
@@ -98,12 +111,16 @@ const HomePage = () => {
   return (
     <Container>
       <HomeHeader />
-      <CarouselBox>
+      {/* <CarouselBox>
         <Carousel images={CAROUSEL_IMAGES} />
-      </CarouselBox>
+      </CarouselBox> */}
+      <Box>
+        <Image src={BannerImage} alt="BTC logo" />
+        <HomeSearchingBar />
+        <CategoryBox />
+      </Box>
       <ContentsBoxShadow>
         <ContentsBox>
-          <CategoryBox />
           <RecommendedPlaceBox
             recommendedList={recommendedList}
             currentLocationState={currentLocationState}

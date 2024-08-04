@@ -8,7 +8,7 @@ import tableImage from "../../../assets/bell.webp";
 const Container = styled.div`
   width: 90%;
   margin: 0 auto;
-  padding: 20px 0;
+  padding-bottom: 12px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;

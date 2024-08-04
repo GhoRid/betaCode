@@ -3,16 +3,14 @@ import RecommendedPlace from "../../../components/RecommendedPlace";
 import Text from "../../../components/Text";
 
 const Container = styled.div`
-  width: 95%;
-  margin: 12px auto;
-  border-radius: 30px;
-  background-color: #f1f0f5;
-  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+  /* border-radius: 30px; */
+  /* background-color: #f1f0f5;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2); */
   padding: 8px 0;
 `;
 
 const RecommandHeader = styled.div`
-  margin: 12px 0 24px 0;
+  padding-top: 8px;
 `;
 
 const Title = styled.div`
@@ -25,7 +23,7 @@ const RecommendedPlaceBox = ({ recommendedList, currentLocationState }) => {
     <Container>
       <RecommandHeader>
         <Title>
-          <Text $fontSize="24px" $fontWeight="800" $textColor="#217BFF">
+          <Text $fontSize="24px" $fontWeight="800" $textColor="#0071A8">
             여기
           </Text>{" "}
           <Text $fontSize="20px" $fontWeight="700">
